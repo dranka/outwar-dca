@@ -35,14 +35,23 @@ namespace DCT.UI
             this.chkTrainReturn = new System.Windows.Forms.CheckBox();
             this.lblTrain = new System.Windows.Forms.Label();
             this.btnTrain = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblFuryCasted = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbFury = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -51,7 +60,6 @@ namespace DCT.UI
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.lnkLingBuff);
             this.tabPage1.Controls.Add(this.chkAutoTrain);
             this.tabPage1.Controls.Add(this.chkTrainReturn);
@@ -68,7 +76,6 @@ namespace DCT.UI
             // lnkLingBuff
             // 
             this.lnkLingBuff.AutoSize = true;
-            this.lnkLingBuff.Enabled = false;
             this.lnkLingBuff.Location = new System.Drawing.Point(115, 125);
             this.lnkLingBuff.Name = "lnkLingBuff";
             this.lnkLingBuff.Size = new System.Drawing.Size(183, 13);
@@ -121,14 +128,83 @@ namespace DCT.UI
             this.btnTrain.UseVisualStyleBackColor = true;
             this.btnTrain.Click += new System.EventHandler(this.btnTrain_Click_1);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(465, 243);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Potions";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblFuryCasted);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cbFury);
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.checkBox3);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(453, 231);
+            this.groupBox1.TabIndex = 45;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Potions";
+            // 
+            // lblFuryCasted
+            // 
+            this.lblFuryCasted.AutoSize = true;
+            this.lblFuryCasted.Location = new System.Drawing.Point(107, 20);
+            this.lblFuryCasted.Name = "lblFuryCasted";
+            this.lblFuryCasted.Size = new System.Drawing.Size(13, 13);
+            this.lblFuryCasted.TabIndex = 45;
+            this.lblFuryCasted.Text = "0";
+            this.lblFuryCasted.Visible = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 150);
+            this.label1.Location = new System.Drawing.Point(58, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(311, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "** I am working on fixing ling buff. Will be back in a future update";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Casted:";
+            this.label1.Visible = false;
+            // 
+            // cbFury
+            // 
+            this.cbFury.AutoSize = true;
+            this.cbFury.Location = new System.Drawing.Point(6, 19);
+            this.cbFury.Name = "cbFury";
+            this.cbFury.Size = new System.Drawing.Size(46, 17);
+            this.cbFury.TabIndex = 41;
+            this.cbFury.Text = "Fury";
+            this.cbFury.UseVisualStyleBackColor = true;
+            this.cbFury.CheckedChanged += new System.EventHandler(this.cbFury_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(4, 65);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(102, 17);
+            this.checkBox2.TabIndex = 42;
+            this.checkBox2.Text = "Minor exp Boost";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Visible = false;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(4, 42);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(102, 17);
+            this.checkBox3.TabIndex = 43;
+            this.checkBox3.Text = "Major exp Boost";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Visible = false;
             // 
             // TrainPanel
             // 
@@ -140,6 +216,9 @@ namespace DCT.UI
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -153,7 +232,13 @@ namespace DCT.UI
         private System.Windows.Forms.CheckBox chkTrainReturn;
         private System.Windows.Forms.Label lblTrain;
         private System.Windows.Forms.Button btnTrain;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblFuryCasted;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbFury;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
 
     }
 }

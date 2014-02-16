@@ -10,6 +10,7 @@ namespace DCT.UI
 {
     internal partial class TrainPanel : UserControl
     {
+        public int FuryCount = 0;
         private AccountsEngine mEngine = new AccountsEngine();
         private static DCT.Threading.ThreadEngine w = new DCT.Threading.ThreadEngine(5, 100);
 
@@ -24,11 +25,31 @@ namespace DCT.UI
                 chkTrainReturn.Enabled = value;
             }
         }
+        internal delegate void IncreaseCounter();
+        public void IncreaseFuryCounter()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new IncreaseCounter(IncreaseFuryCounter));
+                return;
+            }
+            else
+            {
+                FuryCount++;
+                lblFuryCasted.Text = FuryCount.ToString();
+            }
+        }
 
         internal bool AutoTrain
         {
             get { return chkAutoTrain.Checked; }
             set { chkAutoTrain.Checked = value; }
+        }
+
+        internal bool UseFury
+        {
+            get { return (bool)cbFury.Checked; }
+            set { cbFury.Checked = value; }
         }
 
         internal TrainPanel(CoreUI ui)
@@ -68,7 +89,7 @@ namespace DCT.UI
         private void CastLingBuff(object t)
         {
             int x = int.Parse(t.ToString());
-            CoreUI.Instance.AccountsPanel.Engine[x].Mover.Socket.Get("underlingtrust.php?claim=1");
+          CoreUI.Instance.AccountsPanel.Engine[x].Mover.Socket.Get("underlings.php?claim=1");
         }
 
         private void btnTrain_Click_1(object sender, EventArgs e)
@@ -78,13 +99,33 @@ namespace DCT.UI
 
         private void lnkLingBuff_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
             CheckForIllegalCrossThreadCalls = false;
             w.Do(BeginCast);
+
         }
 
         private void chkAutoTrain_CheckedChanged_1(object sender, EventArgs e)
         {
             CoreUI.Instance.Settings.AutoTrain = chkAutoTrain.Checked;
+        }
+
+        private void cbFury_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFury.Checked == true)
+            {
+                lblFuryCasted.Text = "0";
+                label1.Visible = true;
+                lblFuryCasted.Visible = true;
+                FuryCount = 0;
+            }
+            else
+            {
+                label1.Visible = false;
+                lblFuryCasted.Visible = false;
+                FuryCount = 0;
+            }
+            mUI.Settings.UseFury = UseFury;
         }
     }
 }

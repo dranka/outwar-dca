@@ -102,6 +102,7 @@ namespace DCT.UI
             this.Controls.Add(this.lvAdventures);
             this.Controls.Add(this.label16);
             this.Name = "RaidsPanel";
+            this.Size = new System.Drawing.Size(436, 290);
             this.ResumeLayout(false);
             this.PerformLayout();
 

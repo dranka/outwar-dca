@@ -19,6 +19,7 @@ namespace DCT.Outwar.World
         internal bool IsTalkable { get; private set; }
         internal bool IsSpawn { get; private set; }
         internal bool Attacking { get; private set; }
+        internal AttackPanel AttackPanel { get; private set; }
         private bool mQuit;
 
         public string[] RemoveDuplicates(string[] myList)
@@ -323,9 +324,38 @@ namespace DCT.Outwar.World
                 || (!test && !TestRage(false))
                 )
             {
-                CoreUI.Instance.LogPanel.Log(mName + " does not meet specifications.");
-                mQuit = true;
-                return false;
+                if (mRoom.Mover.Account.Rage <= CoreUI.Instance.Settings.StopBelowRage)
+                {
+                    if (CoreUI.Instance.Settings.UseFury == true)
+                    {
+                        string chkFury = mRoom.Mover.Account.Socket.Get("/backpack.php?potion=1");
+                        if (chkFury.IndexOf("/images/rfury.jpg") > 0)
+                        {
+                            Parser fury = new Parser(chkFury);
+                            string FuryID = fury.Parse("/images/rfury.jpg", "kill();makemenu");
+                            Parser ID = new Parser(FuryID);
+                            FuryID = ID.Parse("itempopup(event,'", "')");
+                            chkFury = mRoom.Mover.Account.Socket.Get("/home.php?itemaction=" + FuryID);
+                            CoreUI.Instance.Trainpanel.IncreaseFuryCounter();
+                                CoreUI.Instance.LogPanel.Log(string.Format("Fury casted on {0}", mRoom.Name));
+                        }
+                        else
+                        {
+                            // go to next account
+                            CoreUI.Instance.LogPanel.Log(string.Format("Fury not cast on {0}, none found.", mRoom.Name));
+                            mQuit = true;
+                            mRoom.Mover.Account.RefreshState();
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        CoreUI.Instance.LogPanel.Log(mName + " does not meet specifications.");
+                        mQuit = true;
+                        mRoom.Mover.Account.RefreshState();
+                        return false;
+                    }
+                }
             }
 
             if (mSkipLoad)
@@ -648,7 +678,36 @@ namespace DCT.Outwar.World
                 }
                 else
                 {
-                    CoreUI.Instance.LogPanel.LogAttack("Attack E (server-side)");
+                    if (mRoom.Mover.Account.Rage <= CoreUI.Instance.Settings.StopBelowRage)
+                    {
+                        if (CoreUI.Instance.Settings.UseFury == true)
+                        {
+                            string chkFury = mRoom.Mover.Account.Socket.Get("/backpack.php?potion=1");
+                            if (chkFury.IndexOf("/images/rfury.jpg") > 0)
+                            {
+                                Parser fury = new Parser(chkFury);
+                                string FuryID = fury.Parse("/images/rfury.jpg", "kill();makemenu");
+                                Parser ID = new Parser(FuryID);
+                                FuryID = ID.Parse("itempopup(event,'", "')");
+                                chkFury = mRoom.Mover.Account.Socket.Get("/home.php?itemaction=" + FuryID);
+                                CoreUI.Instance.Trainpanel.IncreaseFuryCounter();
+                                CoreUI.Instance.LogPanel.Log(string.Format("Fury casted on {0}", mRoom.Name));
+                            }
+                            else
+                            {
+                                // go to next account
+                                CoreUI.Instance.LogPanel.Log(string.Format("Fury not cast on {0}, none found.", mRoom.Name));
+                                mQuit = true;
+                                mRoom.Mover.Account.RefreshState();
+                            }
+                        }
+                        else
+                        {
+                            CoreUI.Instance.LogPanel.Log(mName + " Attack E (Server Side)");
+                            mQuit = true;
+                            mRoom.Mover.Account.RefreshState();
+                        }
+                    }
                 }
             }
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-16"?>
+<UserEditable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LastMapUpdate>2012-04-13T06:28:28.640375Z</LastMapUpdate>
+  <MobFilters>
+    <Filter>fuck</Filter>
+  </MobFilters>
+  <NotifyVisible>true</NotifyVisible>
+  <ClearLogs>true</ClearLogs>
+  <AutoTeleport>true</AutoTeleport>
+  <AlertQuests>false</AlertQuests>
+  <AutoTrain>false</AutoTrain>
+  <AutoQuest>false</AutoQuest>
+  <FilterMobs>false</FilterMobs>
+  <UseCountdownTimer>false</UseCountdownTimer>
+  <UseHourTimer>false</UseHourTimer>
+  <ReturnToStart>false</ReturnToStart>
+  <AttackMode>CurrentArea</AttackMode>
+  <RageLimit>75</RageLimit>
+  <StopAtRage>0</StopAtRage>
+  <CycleInterval>0</CycleInterval>
+  <LvlLimitMin>0</LvlLimitMin>
+  <LvlLimit>65</LvlLimit>
+  <Timeout>15000</Timeout>
+  <AttackSpawns>false</AttackSpawns>
+  <IgnoreSpawnRage>true</IgnoreSpawnRage>
+  <MultiThread>false</MultiThread>
+  <QuestKills>false</QuestKills>
+  <LastUsername>bluntaddiction</LastUsername>
+  <LastPassword>15usag58</LastPassword>
+  <LoginThrough>1</LoginThrough>
+  <StopAfter>false</StopAfter>
+  <StopAfterVal>1</StopAfterVal>
+  <StopAfterMode>Runs</StopAfterMode>
+</UserEditable>

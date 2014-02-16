@@ -33,7 +33,6 @@ namespace DCT.UI
             this.chkQuestKills = new System.Windows.Forms.CheckBox();
             this.pnlMainPanel = new System.Windows.Forms.Panel();
             this.chkReturnToStart = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.numTimeout = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.numRageLimit = new System.Windows.Forms.NumericUpDown();
@@ -60,7 +59,6 @@ namespace DCT.UI
             this.grpSettings.Controls.Add(this.chkQuestKills);
             this.grpSettings.Controls.Add(this.pnlMainPanel);
             this.grpSettings.Controls.Add(this.chkReturnToStart);
-            this.grpSettings.Controls.Add(this.label8);
             this.grpSettings.Controls.Add(this.numTimeout);
             this.grpSettings.Controls.Add(this.label5);
             this.grpSettings.Controls.Add(this.numRageLimit);
@@ -84,7 +82,7 @@ namespace DCT.UI
             // chkMultiThread
             // 
             this.chkMultiThread.AutoSize = true;
-            this.chkMultiThread.Location = new System.Drawing.Point(6, 209);
+            this.chkMultiThread.Location = new System.Drawing.Point(3, 200);
             this.chkMultiThread.Name = "chkMultiThread";
             this.chkMultiThread.Size = new System.Drawing.Size(121, 17);
             this.chkMultiThread.TabIndex = 40;
@@ -95,11 +93,11 @@ namespace DCT.UI
             // chkQuestKills
             // 
             this.chkQuestKills.AutoSize = true;
-            this.chkQuestKills.Location = new System.Drawing.Point(8, 186);
+            this.chkQuestKills.Location = new System.Drawing.Point(3, 177);
             this.chkQuestKills.Name = "chkQuestKills";
-            this.chkQuestKills.Size = new System.Drawing.Size(194, 17);
+            this.chkQuestKills.Size = new System.Drawing.Size(165, 17);
             this.chkQuestKills.TabIndex = 7;
-            this.chkQuestKills.Text = "Stop when done required quest kills";
+            this.chkQuestKills.Text = "Stop when done re quest kills";
             this.chkQuestKills.UseVisualStyleBackColor = true;
             this.chkQuestKills.CheckedChanged += new System.EventHandler(this.chkQuestKills_CheckedChanged);
             // 
@@ -115,23 +113,13 @@ namespace DCT.UI
             this.chkReturnToStart.AutoSize = true;
             this.chkReturnToStart.Checked = true;
             this.chkReturnToStart.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkReturnToStart.Location = new System.Drawing.Point(8, 163);
+            this.chkReturnToStart.Location = new System.Drawing.Point(3, 154);
             this.chkReturnToStart.Name = "chkReturnToStart";
             this.chkReturnToStart.Size = new System.Drawing.Size(133, 17);
             this.chkReturnToStart.TabIndex = 37;
             this.chkReturnToStart.Text = "Return to starting room";
             this.chkReturnToStart.UseVisualStyleBackColor = true;
             this.chkReturnToStart.CheckedChanged += new System.EventHandler(this.chkReturnToStart_CheckedChanged_1);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(189, 143);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 13);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Advanced:";
             // 
             // numTimeout
             // 
@@ -140,7 +128,7 @@ namespace DCT.UI
             0,
             0,
             0});
-            this.numTimeout.Location = new System.Drawing.Point(295, 160);
+            this.numTimeout.Location = new System.Drawing.Point(298, 146);
             this.numTimeout.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -165,7 +153,7 @@ namespace DCT.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(211, 162);
+            this.label5.Location = new System.Drawing.Point(189, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 29;
@@ -292,7 +280,7 @@ namespace DCT.UI
             this.chkAutoTeleport.AutoSize = true;
             this.chkAutoTeleport.Checked = true;
             this.chkAutoTeleport.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAutoTeleport.Location = new System.Drawing.Point(8, 126);
+            this.chkAutoTeleport.Location = new System.Drawing.Point(3, 118);
             this.chkAutoTeleport.Name = "chkAutoTeleport";
             this.chkAutoTeleport.Size = new System.Drawing.Size(172, 30);
             this.chkAutoTeleport.TabIndex = 5;
@@ -335,7 +323,6 @@ namespace DCT.UI
         private System.Windows.Forms.CheckBox chkAutoTeleport;
         private System.Windows.Forms.CheckBox chkReturnToStart;
         private System.Windows.Forms.Panel pnlMainPanel;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chkQuestKills;
         private System.Windows.Forms.CheckBox chkMultiThread;
 

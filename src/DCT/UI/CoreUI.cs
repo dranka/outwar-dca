@@ -59,6 +59,8 @@ namespace DCT.UI
 
         internal LogPanel LogPanel { get; private set; }
 
+        internal AttackPanel AttackPanel { get; private set; }
+
         internal AccountsPanel AccountsPanel { get; private set; }
 
         internal ChatUI ChatPanel { get; private set; }
@@ -72,6 +74,8 @@ namespace DCT.UI
         internal TalkPanel TankPanel { get; private set; }
 
         internal SpawnsPanel SpawnsPanel { get; private set; }
+
+        internal TrainPanel Trainpanel { get; private set; }
 
         public UserEditable Settings { get; private set; }
 
@@ -137,9 +141,9 @@ namespace DCT.UI
             SpawnsPanel.Dock = DockStyle.Fill;
             tabs.TabPages[TABINDEX_SPAWNS].Controls.Add(SpawnsPanel);
 
-            mTrainPanel = new TrainPanel(this);
-            mTrainPanel.Dock = DockStyle.Fill;
-            tabs.TabPages[TABINDEX_TRAINER].Controls.Add(mTrainPanel);
+            Trainpanel = new TrainPanel(this);
+            Trainpanel.Dock = DockStyle.Fill;
+            tabs.TabPages[TABINDEX_TRAINER].Controls.Add(Trainpanel);
 
             mTalkPanel = new TalkPanel(this);
             mTalkPanel.Dock = DockStyle.Fill;
@@ -231,6 +235,7 @@ namespace DCT.UI
                 lblExp.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Exp);
                 lblRage.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Rage);
                 lblGold.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Gold);
+                lblRoom.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Mover.Location.Id.ToString());
 
                 Account a = AccountsPanel.Engine.MainAccount;
                 int i = AccountsPanel.Engine.Accounts.IndexOf(a);
@@ -286,7 +291,7 @@ namespace DCT.UI
             RoomsPanel.PathfindEnabled = on;
 
             // TRAINING TAB
-            mTrainPanel.TrainEnabled = on;
+            Trainpanel.TrainEnabled = on;
 
             // SPAWN TAB
             SpawnsPanel.SpawnsEnabled = on;
@@ -374,7 +379,8 @@ namespace DCT.UI
 
             // Training panel
 
-            mTrainPanel.AutoTrain = Settings.AutoTrain;
+            Trainpanel.AutoTrain = Settings.AutoTrain;
+            Trainpanel.UseFury = Settings.UseFury;
 
             // Filters panel
 

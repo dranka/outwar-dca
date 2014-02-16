@@ -11,6 +11,7 @@ namespace DCT.UI
             set { numRageStop.Value = value; }
         }
 
+
         internal int RageLimit
         {
             get { return (int)numRageLimit.Value; }
@@ -50,6 +51,7 @@ namespace DCT.UI
         internal MainPanel MainPanel { get; private set; }
 
         private readonly CoreUI mUI;
+
 
         internal AttackPanel(CoreUI ui)
         {
@@ -115,6 +117,11 @@ namespace DCT.UI
         private void chkMultiThread_CheckedChanged(object sender, EventArgs e)
         {
             mUI.Settings.MultiThread = MultiThread;
+        }
+
+        private void cbFury_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

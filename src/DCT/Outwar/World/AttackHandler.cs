@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DCT.Settings;
+using DCT.Parsing;
 using DCT.UI;
+using DCT.Util;
 
 namespace DCT.Outwar.World
 {
@@ -106,9 +108,32 @@ namespace DCT.Outwar.World
                     // no point in moving if we don't have rage
                     if (a.Mover.Account.Rage > -1 && a.Mover.Account.Rage < Math.Max(1, CoreUI.Instance.Settings.StopBelowRage))
                     {
-                        // go to next account
-                        CoreUI.Instance.LogPanel.Log(string.Format("Not attacking on {0}, reached rage limit", a.Name));
-                        continue;
+                        if (CoreUI.Instance.Settings.UseFury == true)
+                        {
+                            string chkFury = a.Mover.Account.Socket.Get("/backpack.php?potion=1");
+                            if (chkFury.IndexOf("/images/rfury.jpg") > 0)
+                            {
+                                Parser fury = new Parser(chkFury);
+                                string FuryID = fury.Parse("/images/rfury.jpg", "kill();makemenu");
+                                Parser ID = new Parser(FuryID);
+                                FuryID = ID.Parse("itempopup(event,'", "')");
+                                chkFury = a.Mover.Account.Socket.Get("/home.php?itemaction=" + FuryID);
+                                CoreUI.Instance.Trainpanel.IncreaseFuryCounter();
+                                CoreUI.Instance.LogPanel.Log(string.Format("Fury casted on {0}", a.Name));
+                            }
+                            else
+                            {
+                                // go to next account
+                                CoreUI.Instance.LogPanel.Log(string.Format("Fury not cast on {0}, none found.", a.Name));
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            // go to next account
+                            CoreUI.Instance.LogPanel.Log(string.Format("Not attacking on {0}, reached rage limit", a.Name));
+                            continue;
+                        }
                     }
 
                     a.Mover.ReturnToStartHandler.SetOriginal();

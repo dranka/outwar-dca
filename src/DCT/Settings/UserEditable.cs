@@ -31,6 +31,8 @@ namespace DCT.Settings
         public bool UseHourTimer { get; set; }
         [XmlElement("ChatTimeStamps")]
         public bool ChatTimeStamps { get; set; }
+        [XmlElement("UseFury")]
+        public bool UseFury { get; set; }
         [XmlElement("ReturnToStart")]
         public bool ReturnToStart { get; set; }
         [XmlElement("AttackMode")]
@@ -107,7 +109,7 @@ namespace DCT.Settings
             RageLimit = 75;
             StopBelowRage = 0;
             Timeout = 15000;
-            MaxThreads = 5;
+            MaxThreads = 8;
             CycleInterval = 40;
 
             AttackSpawns = false;
@@ -122,6 +124,7 @@ namespace DCT.Settings
             StopQuestKills = false;
             MultiThread = true;
             ChatTimeStamps = true;
+            UseFury = false;
 
             Server = 1;
         }

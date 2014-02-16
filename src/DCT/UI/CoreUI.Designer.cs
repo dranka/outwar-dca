@@ -109,6 +109,8 @@ namespace DCT.UI
             this.tabTalk = new System.Windows.Forms.TabPage();
             this.tabTrainer = new System.Windows.Forms.TabPage();
             this.tabDrops = new System.Windows.Forms.TabPage();
+            this.tslRoom = new System.Windows.Forms.ToolStripLabel();
+            this.lblRoom = new System.Windows.Forms.ToolStripLabel();
             this.ss.SuspendLayout();
             this.mnuMain.SuspendLayout();
             this.mNotifyMenu.SuspendLayout();
@@ -543,7 +545,9 @@ namespace DCT.UI
             this.toolStripLabel4,
             this.lblRage,
             this.toolStripLabel2,
-            this.lblGold});
+            this.lblGold,
+            this.tslRoom,
+            this.lblRoom});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.ShowItemToolTips = false;
@@ -719,7 +723,7 @@ namespace DCT.UI
             // 
             this.tabFilters.Location = new System.Drawing.Point(4, 22);
             this.tabFilters.Name = "tabFilters";
-            this.tabFilters.Size = new System.Drawing.Size(455, 307);
+            this.tabFilters.Size = new System.Drawing.Size(539, 307);
             this.tabFilters.TabIndex = 7;
             this.tabFilters.Text = "Filters";
             this.tabFilters.UseVisualStyleBackColor = true;
@@ -728,7 +732,7 @@ namespace DCT.UI
             // 
             this.tabRooms.Location = new System.Drawing.Point(4, 22);
             this.tabRooms.Name = "tabRooms";
-            this.tabRooms.Size = new System.Drawing.Size(455, 307);
+            this.tabRooms.Size = new System.Drawing.Size(539, 307);
             this.tabRooms.TabIndex = 5;
             this.tabRooms.Text = "Rooms";
             this.tabRooms.UseVisualStyleBackColor = true;
@@ -737,7 +741,7 @@ namespace DCT.UI
             // 
             this.tabMobs.Location = new System.Drawing.Point(4, 22);
             this.tabMobs.Name = "tabMobs";
-            this.tabMobs.Size = new System.Drawing.Size(455, 307);
+            this.tabMobs.Size = new System.Drawing.Size(539, 307);
             this.tabMobs.TabIndex = 9;
             this.tabMobs.Text = "Mobs";
             this.tabMobs.UseVisualStyleBackColor = true;
@@ -746,7 +750,7 @@ namespace DCT.UI
             // 
             this.tabJoiner.Location = new System.Drawing.Point(4, 22);
             this.tabJoiner.Name = "tabJoiner";
-            this.tabJoiner.Size = new System.Drawing.Size(455, 307);
+            this.tabJoiner.Size = new System.Drawing.Size(539, 307);
             this.tabJoiner.TabIndex = 11;
             this.tabJoiner.Text = "Raids";
             this.tabJoiner.UseVisualStyleBackColor = true;
@@ -755,7 +759,7 @@ namespace DCT.UI
             // 
             this.tabSpawns.Location = new System.Drawing.Point(4, 22);
             this.tabSpawns.Name = "tabSpawns";
-            this.tabSpawns.Size = new System.Drawing.Size(455, 307);
+            this.tabSpawns.Size = new System.Drawing.Size(539, 307);
             this.tabSpawns.TabIndex = 12;
             this.tabSpawns.Text = "Spawns";
             this.tabSpawns.UseVisualStyleBackColor = true;
@@ -764,7 +768,7 @@ namespace DCT.UI
             // 
             this.tabTalk.Location = new System.Drawing.Point(4, 22);
             this.tabTalk.Name = "tabTalk";
-            this.tabTalk.Size = new System.Drawing.Size(455, 307);
+            this.tabTalk.Size = new System.Drawing.Size(539, 307);
             this.tabTalk.TabIndex = 13;
             this.tabTalk.Text = "Quest";
             this.tabTalk.UseVisualStyleBackColor = true;
@@ -773,7 +777,7 @@ namespace DCT.UI
             // 
             this.tabTrainer.Location = new System.Drawing.Point(4, 22);
             this.tabTrainer.Name = "tabTrainer";
-            this.tabTrainer.Size = new System.Drawing.Size(455, 307);
+            this.tabTrainer.Size = new System.Drawing.Size(539, 307);
             this.tabTrainer.TabIndex = 6;
             this.tabTrainer.Text = "Misc/Other";
             this.tabTrainer.UseVisualStyleBackColor = true;
@@ -782,10 +786,24 @@ namespace DCT.UI
             // 
             this.tabDrops.Location = new System.Drawing.Point(4, 22);
             this.tabDrops.Name = "tabDrops";
-            this.tabDrops.Size = new System.Drawing.Size(455, 307);
+            this.tabDrops.Size = new System.Drawing.Size(539, 307);
             this.tabDrops.TabIndex = 10;
             this.tabDrops.Text = "Chat";
             this.tabDrops.UseVisualStyleBackColor = true;
+            // 
+            // tslRoom
+            // 
+            this.tslRoom.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold);
+            this.tslRoom.Name = "tslRoom";
+            this.tslRoom.Size = new System.Drawing.Size(36, 22);
+            this.tslRoom.Text = "Room:";
+            // 
+            // lblRoom
+            // 
+            this.lblRoom.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.lblRoom.Name = "lblRoom";
+            this.lblRoom.Size = new System.Drawing.Size(14, 22);
+            this.lblRoom.Text = "...";
             // 
             // CoreUI
             // 
@@ -903,5 +921,7 @@ namespace DCT.UI
         private System.Windows.Forms.ToolStripMenuItem timeStampToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
+        private System.Windows.Forms.ToolStripLabel tslRoom;
+        private System.Windows.Forms.ToolStripLabel lblRoom;
     }
 }

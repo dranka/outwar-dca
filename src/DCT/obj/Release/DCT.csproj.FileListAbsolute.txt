@@ -1,0 +1,206 @@
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.exe.manifest
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.application
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.exe
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.pdb
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.Properties.Resources.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.frmItemSettings.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.Questing.frmMobTalk.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.Questing.MobTalkControl.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.TalkPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.Feedback.frmBugReporter.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.ChatUI.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.AccountsPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.AttackPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.CoreUI.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.FiltersPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.frmLoginServer.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.LogPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.MainPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.MobsPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.RaidsPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.RoomsPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.SpawnsPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.StartDialog.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.TrainPanel.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.Util.InputBox.resources
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.TrustInfo.xml
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.exe.manifest
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.application
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.exe
+C:\Users\Gary\Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.pdb
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.exe
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.pdb
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.exe.manifest
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.application
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.exe
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\bin\Release\DCT.pdb
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.Properties.Resources.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.frmItemSettings.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.Questing.frmMobTalk.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.Questing.MobTalkControl.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.TalkPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.Feedback.frmBugReporter.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.ChatUI.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.AccountsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.AttackPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.CoreUI.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.FiltersPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.frmLoginServer.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.LogPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.MainPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.MobsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.RaidsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.RoomsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.SpawnsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.StartDialog.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.UI.TrainPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.Util.InputBox.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\GenerateResource-ResGen.read.4.tlog
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.TrustInfo.xml
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.exe.manifest
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-outwar-dca-87f1b50\src\DCT\obj\Release\DCT.application
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.exe
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.pdb
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.Properties.Resources.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.frmItemSettings.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.Questing.frmMobTalk.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.Questing.MobTalkControl.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.TalkPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.Feedback.frmBugReporter.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.ChatUI.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.AccountsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.AttackPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.CoreUI.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.FiltersPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.frmLoginServer.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.LogPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.MainPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.MobsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.RaidsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.RoomsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.SpawnsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.StartDialog.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.UI.TrainPanel.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.Util.InputBox.resources
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\GenerateResource-ResGen.read.4.tlog
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\bin\Release\DCT.exe.manifest
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\bin\Release\DCT.application
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\bin\Release\DCT.exe
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\bin\Release\DCT.pdb
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.TrustInfo.xml
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.exe.manifest
+C:\Documents and Settings\Gary\My Documents\Visual Studio 2010\Projects\typpo-Public\src\DCT\obj\Release\DCT.application
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.exe
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.pdb
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\bin\Release\DCT.exe.manifest
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\bin\Release\DCT.application
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\bin\Release\DCT.exe
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\bin\Release\DCT.pdb
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.Properties.Resources.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.frmItemSettings.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.Questing.frmMobTalk.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.Questing.MobTalkControl.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.TalkPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.Feedback.frmBugReporter.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.ChatUI.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.AccountsPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.AttackPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.CoreUI.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.FiltersPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.frmLoginServer.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.LogPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.MainPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.MobsPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.RaidsPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.RoomsPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.SpawnsPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.StartDialog.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.UI.TrainPanel.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.Util.InputBox.resources
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\GenerateResource-ResGen.read.4.tlog
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\ResGen.read.1.tlog
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\ResGen.write.1.tlog
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.TrustInfo.xml
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.exe.manifest
+C:\Users\Shane\Documents\typpo-Public\typpo-Public\src\DCT\obj\Release\DCT.application
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.exe
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.pdb
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.exe.manifest
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.application
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.exe
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.pdb
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.Properties.Resources.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.frmItemSettings.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.Questing.frmMobTalk.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.Questing.MobTalkControl.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.TalkPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.Feedback.frmBugReporter.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.ChatUI.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.AccountsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.AttackPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.CoreUI.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.FiltersPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.frmLoginServer.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.LogPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.MainPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.MobsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.RaidsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.RoomsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.SpawnsPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.StartDialog.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.TrainPanel.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.Util.InputBox.resources
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\GenerateResource-ResGen.read.4.tlog
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\ResGen.read.1.tlog
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\ResGen.write.1.tlog
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.TrustInfo.xml
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.exe.manifest
+C:\Documents and Settings\Gary\My Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.application
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.Properties.Resources.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.frmItemSettings.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.Questing.frmMobTalk.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.Questing.MobTalkControl.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.TalkPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.Feedback.frmBugReporter.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.ChatUI.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.AccountsPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.AttackPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.CoreUI.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.FiltersPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.frmLoginServer.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.LogPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.MainPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.MobsPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.RaidsPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.RoomsPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.SpawnsPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.StartDialog.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.UI.TrainPanel.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.Util.InputBox.resources
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\ResGen.read.1.tlog
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\ResGen.write.1.tlog
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.exe.manifest
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.application
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.exe
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\bin\Release\DCT.pdb
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.TrustInfo.xml
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.exe.manifest
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.application
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.exe
+C:\Users\Shane\Documents\Dropbox\Typpo\src\DCT\obj\Release\DCT.pdb

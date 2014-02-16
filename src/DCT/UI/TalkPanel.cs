@@ -15,6 +15,7 @@ namespace DCT.UI
 {
     public partial class TalkPanel : UserControl
     {
+        private BindingSource bs = new BindingSource();   
 
         internal bool TalkEnabled
         {
@@ -310,14 +311,64 @@ namespace DCT.UI
             }
         }
 
-        private void lnkEobGlitch_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //private void lnkEobGlitch_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    foreach (int index in CoreUI.Instance.AccountsPanel.CheckedIndices)
+        //    {
+        //        string i = index.ToString();
+        //        ThreadPool.QueueUserWorkItem(StartEobGlitch, i);
+        //        Threading.ThreadEngine.Sleep(50);
+        //    }
+        //}
+
+        //internal delegate void QuestDB(string QuestName, string step, string mob, string room, string details);
+        //internal void LoadQuestDB(string QuestName, string step, string mob, string room, string details)
+        //{
+        //    if (InvokeRequired)
+        //    {
+        //        Invoke(new QuestDB(LoadQuestDB), QuestName, step, mob, room, details);
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        if (lvQuestDB.Groups[QuestName] == null)
+        //        {
+        //            lvQuestDB.Groups.Add(new ListViewGroup(QuestName, QuestName));
+        //        }
+        //        ListViewItem Item1 = lvQuestDB.Items.Add(new ListViewItem(new string[] { step, mob, room, details }));
+        //        Item1.Group = lvQuestDB.Groups[QuestName];
+
+        //    }
+        //}
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            foreach (int index in CoreUI.Instance.AccountsPanel.CheckedIndices)
+
+        }
+
+        private void dgKills_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (IsANonHeaderButtonCell(e))
             {
-                string i = index.ToString();
-                ThreadPool.QueueUserWorkItem(StartEobGlitch, i);
-                Threading.ThreadEngine.Sleep(50);
+                if (dgKills.Rows.Count == 1 )
+                {
+
+                }
+                else
+                {
+                dgKills.Rows.Remove(dgKills.CurrentRow);
+                }
+
             }
+        }
+
+        private bool IsANonHeaderButtonCell(DataGridViewCellEventArgs cellEvent)
+        {
+            if (dgKills.Columns[cellEvent.ColumnIndex] is
+                DataGridViewButtonColumn &&
+                cellEvent.RowIndex != -1)
+            { return true; }
+            else { return (false); }
         }
     }
 }
