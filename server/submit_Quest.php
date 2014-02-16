@@ -1,5 +1,5 @@
 <?
-
+$path = 'quest.submitted';
 
 $mobs = $_POST['mobs'];
 
@@ -10,7 +10,7 @@ if ($mobs != NULL)
 		return;
 	}
 $con=mysqli_connect("localhost","User","Pass","DB_Name");
-
+// Check connection
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -18,14 +18,13 @@ if (mysqli_connect_errno())
   echo "Connected to db";
   
   	foreach(preg_split("/((\r?\n)|(\r\n?))/", $mobs) as $line){
-      list($name, $id, $room, $level, $rage) =
-    split(";", $line, 5);
-    mysqli_query($con,"INSERT INTO `Mobs`(`mobName`, `MobID`, `Room`, `Level`, `Rage`) VALUES ('$name','$id','$room','$level','$rage')");
-} 
-  mysqli_close($con);
-}
-?>
-e','$id','$room','$level','$rage')");
+    // do stuff with $line
+      list($name, $id, $room) =
+    split(";", $line, 3);
+    if ($id !== "n/a")
+    {
+    mysqli_query($con,"INSERT INTO `QuestMobs`(`MobName`, `MobID`, `MobRoom`) VALUES ('$name','$id','$room')");
+    }
     //$fh = fopen($path, 'a') or die('can\'t open file - a');
 	//fwrite($fh, $name);
 	//fclose($fh);
