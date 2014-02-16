@@ -86,7 +86,7 @@ namespace DCT.Outwar.World
         private static void Run()
         {
             // save settings
-            RegistryUtil.Save();
+            //RegistryUtil.Save();
             IniWriter.Save();
             ConfigSerializer.WriteFile("config.xml", CoreUI.Instance.Settings);
 
@@ -151,6 +151,12 @@ namespace DCT.Outwar.World
             {
                 CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.MobCollector.Count + " new mobs");
                 Pathfinding.MobCollector.Submit();
+            }
+
+            if (Pathfinding.QuestMobs.Count > 0)
+            {
+                CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.QuestMobs.Count + " new quest mobs");
+                Pathfinding.QuestMobs.Submit();
             }
         }
 

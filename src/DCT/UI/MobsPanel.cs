@@ -139,6 +139,17 @@ namespace DCT.UI
             return i;
         }
 
+        private int UncheckMobsbyName(string name)
+        {
+            int i = 0;
+            foreach (ListViewItem item in lvMobs.Items.Find(name, false))
+            {
+                item.Checked = false;
+                i++;
+            }
+            return i;
+        }
+
         private void lnkMobsSelect_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             int i = 0;
@@ -168,31 +179,26 @@ namespace DCT.UI
                     check.Add("Enraged Centaur");
                     check.Add("Earth Troll");
                     check.Add("Evil Sherpa");
-                    if (MessageBox.Show("Do you want to select Entropic Horrors and Belligerent Zombies too (lower drop rates)?", "Select Potion Mobs", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        check.Add("Entropic Horror");
-                        check.Add("Belligerent Zombie");
-                    }
                     break;
                 case "fire":
                     check.Add("Haunter");
-                    check.Add("Forgotten Warrior");
+                    check.Add("Evil Ranger Grunt");
                     check.Add("Lost Demon");
                     break;
                 case "holy":
                     check.Add("Fallen Angel");
                     check.Add("Apparitional Veteran");
-                    check.Add("Rabid Wallabee");
+                    check.Add("Evil Ranger Grunt");
                     break;
                 case "shadow":
                     check.Add("Caustic Corpse");
                     check.Add("Infuriated Savage");
-                    check.Add("Choleric Ancient");
+                    check.Add("Evil Ranger Grunt");
                     break;
                 case "arcane":
                     check.Add("Spectral Warrior");
                     check.Add("Ancient Deserter");
-                    check.Add("Bearded Recluse");
+                    check.Add("Evil Ranger Grunt");
                     break;
                 default:
                     MessageBox.Show("Choose a preset option.", "Select Potion Mobs", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -256,6 +262,19 @@ namespace DCT.UI
             if (txt.StartsWith("A "))
                 txt = txt.Substring(2);
             btnMobGo.Text = string.Format("Go to {0}", txt);
+        }
+
+        private void lnkUncheck_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            int i = 0;
+            string input = InputBox.Prompt("Mob Selection", "Check all mobs with the following names (separated by commas):");
+            if (string.IsNullOrEmpty(input))
+                return;
+            foreach (string s in input.Split(new[] { ',' }))
+            {
+                i += UncheckMobsbyName(s.Trim());
+            }
+            MessageBox.Show("Unchecked " + i + " mobs.", "Unchecked Mobs", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -29,10 +29,11 @@ namespace DCT.UI
         private void InitializeComponent()
         {
             this.btnAdventuresGo = new System.Windows.Forms.Button();
-            this.lvAdventures = new System.Windows.Forms.ListView();
-            this.clmName = new System.Windows.Forms.ColumnHeader();
-            this.clmRoomID = new System.Windows.Forms.ColumnHeader();
             this.label16 = new System.Windows.Forms.Label();
+            this.clmName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmRoomID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvAdventures = new System.Windows.Forms.ListView();
+            this.btnStopMove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAdventuresGo
@@ -45,20 +46,14 @@ namespace DCT.UI
             this.btnAdventuresGo.UseVisualStyleBackColor = true;
             this.btnAdventuresGo.Click += new System.EventHandler(this.btnAdventuresGo_Click);
             // 
-            // lvAdventures
+            // label16
             // 
-            this.lvAdventures.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmName,
-            this.clmRoomID});
-            this.lvAdventures.FullRowSelect = true;
-            this.lvAdventures.GridLines = true;
-            this.lvAdventures.Location = new System.Drawing.Point(3, 25);
-            this.lvAdventures.MultiSelect = false;
-            this.lvAdventures.Name = "lvAdventures";
-            this.lvAdventures.Size = new System.Drawing.Size(420, 254);
-            this.lvAdventures.TabIndex = 10;
-            this.lvAdventures.UseCompatibleStateImageBehavior = false;
-            this.lvAdventures.View = System.Windows.Forms.View.Details;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(223, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Move all checked accounts to selected room:";
             // 
             // clmName
             // 
@@ -70,24 +65,43 @@ namespace DCT.UI
             this.clmRoomID.Text = "Room ID";
             this.clmRoomID.Width = 100;
             // 
-            // label16
+            // lvAdventures
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 9);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(223, 13);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "Move all checked accounts to selected room:";
+            this.lvAdventures.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmName,
+            this.clmRoomID});
+            this.lvAdventures.FullRowSelect = true;
+            this.lvAdventures.GridLines = true;
+            this.lvAdventures.Location = new System.Drawing.Point(3, 25);
+            this.lvAdventures.MultiSelect = false;
+            this.lvAdventures.Name = "lvAdventures";
+            this.lvAdventures.Size = new System.Drawing.Size(420, 254);
+            this.lvAdventures.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lvAdventures.TabIndex = 10;
+            this.lvAdventures.UseCompatibleStateImageBehavior = false;
+            this.lvAdventures.View = System.Windows.Forms.View.Details;
+            // 
+            // btnStopMove
+            // 
+            this.btnStopMove.Enabled = false;
+            this.btnStopMove.Location = new System.Drawing.Point(269, 2);
+            this.btnStopMove.Name = "btnStopMove";
+            this.btnStopMove.Size = new System.Drawing.Size(38, 23);
+            this.btnStopMove.TabIndex = 12;
+            this.btnStopMove.Text = "Stop";
+            this.btnStopMove.UseVisualStyleBackColor = true;
+            this.btnStopMove.Visible = false;
+            this.btnStopMove.Click += new System.EventHandler(this.btnStopMove_Click);
             // 
             // RaidsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnStopMove);
             this.Controls.Add(this.btnAdventuresGo);
             this.Controls.Add(this.lvAdventures);
             this.Controls.Add(this.label16);
             this.Name = "RaidsPanel";
-            this.Size = new System.Drawing.Size(426, 282);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,9 +110,10 @@ namespace DCT.UI
         #endregion
 
         private System.Windows.Forms.Button btnAdventuresGo;
-        private System.Windows.Forms.ListView lvAdventures;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ColumnHeader clmName;
         private System.Windows.Forms.ColumnHeader clmRoomID;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ListView lvAdventures;
+        private System.Windows.Forms.Button btnStopMove;
     }
 }

@@ -5,7 +5,7 @@ namespace DCT.Util
 {
     class BugReporter
     {
-        private const string URL = "http://typpo.us/submit.php";
+        private const string URL = "http://fuckplayingfair.com/Typpo/submit.php";
 
         internal static readonly string IDENTIFIER = Randomizer.RandomString(10);
 

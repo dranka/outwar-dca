@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using DCT.Parsing;
 using DCT.Settings;
 using DCT.Threading;
@@ -46,7 +47,25 @@ namespace DCT.Outwar.World
                 url += "&door=1";
             }
             string src = Mover.Socket.Get(url);
+
+            if (src.Contains("Could not connect, please try again."))
+            {
+                src = Mover.Socket.Get(url);
+            }
+            else
+            {
+                try
+                {
             src = System.Text.RegularExpressions.Regex.Unescape(src);
+                }
+                catch (Exception Ex)
+                {
+
+                }
+
+            }
+
+
 
             Parser p = new Parser(src);
             // TODO look how error messages changed
@@ -85,7 +104,7 @@ namespace DCT.Outwar.World
             {
                 EnumMobs(src);
             }
-            else if (CoreUI.Instance.Settings.AutoTrain || CoreUI.Instance.Settings.AutoQuest || CoreUI.Instance.Settings.AlertQuests)
+            else if (CoreUI.Instance.Settings.AutoTrain|| CoreUI.Instance.Settings.AutoQuest || CoreUI.Instance.Settings.AlertQuests)
             {
                 EnumMobs(src);
 
@@ -108,7 +127,7 @@ namespace DCT.Outwar.World
             Mobs = new List<Mob>();
 
 
-            foreach (string s in Parser.MultiParse(src, "images//", "spacer.gif"))
+            foreach (string s in Parser.MultiParse(src, "<TR><table width=100% cellpadding=0 cellspacing=0 border=0", "spacer.gif"))
             {
                 Parser p = new Parser(s);
 
@@ -121,7 +140,10 @@ namespace DCT.Outwar.World
 
                 if (s.Contains("Spawned by"))
                 {
-                    name = string.Format("*{0}*", p.Parse("\">*", " ["));
+
+                    //parsing for server spawns needs fixed here
+                    string level = Parser.Parse(s, "<br>Level: ", "</font>");
+                    name = Parser.CutTrailing(Parser.CutLeading(s, " size=\"2\"><b>"), "<");
                     if (name.Contains("<"))
                     {
                         // TODO this is a bandaid fix re: a bug with the parser.  It will pick up html from killed spawn mobs
@@ -131,7 +153,8 @@ namespace DCT.Outwar.World
                     // log spawn sighting, but don't attack it if we shouldn't
                     if (Globals.AttackOn)
                     {
-                        CoreUI.Instance.SpawnsPanel.Log(string.Format("{0} sighted {1} in room {2}", Mover.Account.Name, name, Id));
+                        CoreUI.Instance.SpawnsPanel.Log(string.Format("{0} sighted {1} in room {2} - Level: {3}", Mover.Account.Name, name, Id, level));
+                        //CoreUI.Instance.SpawnsPanel.Log(name + ";" + level + ";" + Id + ";");
                         CoreUI.Instance.SpawnsPanel.Sighted(Id);
                         if (!CoreUI.Instance.Settings.AttackSpawns)
                             continue;
@@ -139,26 +162,32 @@ namespace DCT.Outwar.World
                 }
                 else
                 {
-                    name = Parser.Parse(Parser.CutLeading(s, url + "\">"), "\">", " [");
+                    name = Parser.Parse(Parser.CutLeading(s, url + "\">"), "><b>", "</b><br>Level");
+                    //name = Parser.Parse(Parser.CutLeading(s, "Level:"), "><b>", "</b><br>");
+                }
+                if (s.Contains("questicon.png"))
+                {
+                    string ModID = p.Parse("id=", "&h=");
+                    CoreUI.Instance.TalkPanel.AddMob(name, ModID, Id.ToString());
+                    quest = true;
+                    //StartQuest();
                 }
 
-                if (s.Contains("newattack.php"))
+                if (s.Contains("trainicon.png"))
                 {
-                    attackurl = "newattack.php" + p.Parse("newattack.php", "\"");
+                    trainer = true;
+                }
+
+                if (s.Contains("somethingelse.php"))
+                {
+                    attackurl = "somethingelse.php" + p.Parse("somethingelse.php", "\"");
                 }
                 else
                 {
                     continue;
                 }
 
-                if (s.Contains("talk_icon.jpg"))
-                {
-                    quest = true;
-                }
-                if (s.Contains("dc_trainer.gif"))
-                {
-                    trainer = true;
-                }
+
 
                 /*
                 if (string.IsNullOrEmpty(attackurl) && !quest && !trainer)

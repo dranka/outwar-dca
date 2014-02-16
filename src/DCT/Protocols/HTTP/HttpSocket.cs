@@ -136,7 +136,7 @@ namespace DCT.Protocols.Http
 
         private HttpWebRequest GenerateRequest(string url)
         {
-            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             //request.CachePolicy = CACHE_POLICY;
             request.Timeout = CoreUI.Instance.Settings.Timeout;//mTimeout;
 

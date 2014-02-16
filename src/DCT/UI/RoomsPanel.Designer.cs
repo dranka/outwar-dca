@@ -33,11 +33,13 @@ namespace DCT.UI
             this.btnPathfind = new System.Windows.Forms.Button();
             this.numPathfindId = new System.Windows.Forms.NumericUpDown();
             this.lvPathfind = new System.Windows.Forms.ListView();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
             this.lnkUncheckRooms = new System.Windows.Forms.LinkLabel();
             this.lnkRoomsSelect = new System.Windows.Forms.LinkLabel();
+            this.cmbTele = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numPathfindId)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +79,7 @@ namespace DCT.UI
             // 
             this.numPathfindId.Location = new System.Drawing.Point(328, 6);
             this.numPathfindId.Maximum = new decimal(new int[] {
-            10000,
+            50000,
             0,
             0,
             0});
@@ -105,14 +107,13 @@ namespace DCT.UI
             this.lvPathfind.FullRowSelect = true;
             this.lvPathfind.GridLines = true;
             this.lvPathfind.Location = new System.Drawing.Point(7, 32);
-            this.lvPathfind.MultiSelect = false;
             this.lvPathfind.Name = "lvPathfind";
             this.lvPathfind.Size = new System.Drawing.Size(412, 233);
             this.lvPathfind.TabIndex = 13;
             this.lvPathfind.UseCompatibleStateImageBehavior = false;
             this.lvPathfind.View = System.Windows.Forms.View.Details;
-            this.lvPathfind.SelectedIndexChanged += new System.EventHandler(this.lvPathfind_SelectedIndexChanged);
             this.lvPathfind.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvPathfind_ColumnClick);
+            this.lvPathfind.SelectedIndexChanged += new System.EventHandler(this.lvPathfind_SelectedIndexChanged);
             // 
             // columnHeader2
             // 
@@ -155,10 +156,36 @@ namespace DCT.UI
             this.lnkRoomsSelect.Text = "Select rooms by name...";
             this.lnkRoomsSelect.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRoomsSelect_LinkClicked);
             // 
+            // cmbTele
+            // 
+            this.cmbTele.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTele.FormattingEnabled = true;
+            this.cmbTele.Items.AddRange(new object[] {
+            "Home Bar",
+            "Noble Wizard",
+            "Valiant Crusader",
+            "Tracy McScurvy"});
+            this.cmbTele.Location = new System.Drawing.Point(7, 6);
+            this.cmbTele.Name = "cmbTele";
+            this.cmbTele.Size = new System.Drawing.Size(114, 21);
+            this.cmbTele.TabIndex = 18;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(127, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(31, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Go";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RoomsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cmbTele);
             this.Controls.Add(this.lnkRoomsSelect);
             this.Controls.Add(this.lnkSaveRooms);
             this.Controls.Add(this.lnkLoadRooms);
@@ -187,5 +214,7 @@ namespace DCT.UI
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel lnkUncheckRooms;
         private System.Windows.Forms.LinkLabel lnkRoomsSelect;
+        private System.Windows.Forms.ComboBox cmbTele;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -2,13 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 using DCT.Util;
 using DCT.Pathfinding;
+using DCT.Threading;
+using DCT.UI;
+using DCT.Protocols.Http;
+using System.Threading;
 
 namespace DCT.UI
 {
+
     public partial class RoomsPanel : UserControl
     {
+        string SelectedTeleMob;
         internal ListView.ListViewItemCollection Rooms
         {
             get { return lvPathfind.Items; }
@@ -187,6 +194,48 @@ namespace DCT.UI
                 i += SelectRoomsByName(s.Trim());
             }
             MessageBox.Show("Selected " + i + " rooms.", "Select Rooms", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (int index in CoreUI.Instance.AccountsPanel.CheckedIndices)
+            {
+                if (cmbTele.Text != "")
+                {
+                string i = index.ToString() + ";" + cmbTele.Text;
+                ThreadPool.QueueUserWorkItem(TeleAccounts, i);
+                Threading.ThreadEngine.Sleep(50);
+                }
+            }
+        }
+
+        private void TeleAccounts(object t)
+        {
+            string[] info = t.ToString().Split(';');
+
+            string Name = info[1];
+            int i = int.Parse(info[0]);
+
+            if (Name == "Home Bar")
+            {
+                CoreUI.Instance.AccountsPanel.Engine[i].Mover.Socket.Get("world.php?teleport=1");
+                CoreUI.Instance.LogPanel.Log("Teleporting " + CoreUI.Instance.AccountsPanel.Engine[i].Name + " ...");
+            }
+            else if (Name == "Noble Wizard")
+            {
+                CoreUI.Instance.AccountsPanel.Engine[i].Mover.Socket.Get("world.php?room=130");
+                CoreUI.Instance.LogPanel.Log("Teleporting " + CoreUI.Instance.AccountsPanel.Engine[i].Name + " ...");
+            }
+            else if (Name == "Valiant Crusader")
+            {
+                CoreUI.Instance.AccountsPanel.Engine[i].Mover.Socket.Get("world.php?room=6640");
+                CoreUI.Instance.LogPanel.Log("Teleporting " + CoreUI.Instance.AccountsPanel.Engine[i].Name + " ...");
+            }
+            else if (Name == "Tracy McScurvy")
+            {
+                CoreUI.Instance.AccountsPanel.Engine[i].Mover.Socket.Get("world.php?room=390");
+                CoreUI.Instance.LogPanel.Log("Teleporting " + CoreUI.Instance.AccountsPanel.Engine[i].Name + " ...");
+            }
         }
     }
 }

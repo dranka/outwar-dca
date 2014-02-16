@@ -343,39 +343,39 @@ namespace DCT.Outwar.World
                 return;
             }
 
-            CoreUI.Instance.LogPanel.Log("Starting leveling for " + Account.Name);
-            CoreUI.Instance.LogPanel.Log("Loading all possible bars...");
+            Account.Socket.Get("levelup.php");
+            CoreUI.Instance.LogPanel.Log(Account.Name + " has been leveled.");
+            //CoreUI.Instance.LogPanel.Log("Loading all possible bars...");
 
-            mTrainRoomStart = Location.Id;
+            //mTrainRoomStart = Location.Id;
 
-            List<List<int>> paths = new List<List<int>>();
-            paths.Add(Pathfinder.BFS(Location.Id, 258)); // dustglass
-            paths.Add(Pathfinder.BFS(Location.Id, 241)); // drunkenclam
-            paths.Add(Pathfinder.BFS(Location.Id, 403)); //hardiron
-            paths.Add(Pathfinder.BFS(Location.Id, 299)); //chuggers
+            //List<List<int>> paths = new List<List<int>>();
+            //paths.Add(Pathfinder.BFS(Location.Id, 258)); // dustglass
+            //paths.Add(Pathfinder.BFS(Location.Id, 377)); // drunkenclam
+            //paths.Add(Pathfinder.BFS(Location.Id, 401)); //hardiron
 
-            bool tmp = CoreUI.Instance.Settings.AutoTrain;
-            CoreUI.Instance.Settings.AutoTrain = true;
+            //bool tmp = CoreUI.Instance.Settings.AutoTrain;
+            //CoreUI.Instance.Settings.AutoTrain = true;
 
-            int shortest = 0;
-            for (int i = 1; i < paths.Count; i++)
-            {
-                List<int> path = paths[i];
-                if (path != null && path.Count < paths[shortest].Count)
-                {
-                    shortest = i;
-                }
-            }
+            //int shortest = 0;
+            //for (int i = 1; i < paths.Count; i++)
+            //{
+            //    List<int> path = paths[i];
+            //    if (path != null && path.Count < paths[shortest].Count)
+            //    {
+            //        shortest = i;
+            //    }
+            //}
 
-            FollowPath(paths[shortest]);
+            //FollowPath(paths[shortest]);
 
-            CoreUI.Instance.Settings.AutoTrain = tmp;
-            Location.Train();
+            //CoreUI.Instance.Settings.AutoTrain = tmp;
+            //Location.Train();
 
-            if (Location.Trained)
-                CoreUI.Instance.LogPanel.Log(Account.Name + " has been leveled");
-            else
-                CoreUI.Instance.LogPanel.Log(Account.Name + " not leveled - can't find bartender");
+            //if (Location.Trained)
+            //    CoreUI.Instance.LogPanel.Log(Account.Name + " has been leveled");
+            //else
+            //    CoreUI.Instance.LogPanel.Log(Account.Name + " not leveled - can't find bartender");
         }
 
         internal void TrainReturn()

@@ -16,5 +16,10 @@ namespace DCT.UI.Questing
 
             talkpanel.LoadTalk(account, mobid, sessid);
         }
+
+        private void talkpanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

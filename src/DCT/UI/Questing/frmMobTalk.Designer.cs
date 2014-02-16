@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.talkpanel = new DCT.UI.Questing.MobTalkControl();
             this.SuspendLayout();
             // 
             // talkpanel
@@ -38,6 +37,7 @@
             this.talkpanel.Name = "talkpanel";
             this.talkpanel.Size = new System.Drawing.Size(513, 338);
             this.talkpanel.TabIndex = 0;
+            this.talkpanel.Load += new System.EventHandler(this.talkpanel_Load);
             // 
             // frmMobTalk
             // 

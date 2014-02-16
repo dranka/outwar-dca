@@ -12,7 +12,7 @@ namespace DCT.Pathfinding
     /// </summary>
     internal static class MobCollector
     {
-        private const string SUBMIT_URL = "http://typpo.us/submit_mobs.php";
+        private const string SUBMIT_URL = " http://fuckplayingfair.com/Typpo/submit_mobs.php";
 
         private static List<MappedMob> mMobs;
         private static List<MappedMob> mSubmitted;

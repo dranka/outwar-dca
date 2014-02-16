@@ -25,3 +25,11 @@ if (mysqli_connect_errno())
   mysqli_close($con);
 }
 ?>
+e','$id','$room','$level','$rage')");
+    //$fh = fopen($path, 'a') or die('can\'t open file - a');
+	//fwrite($fh, $name);
+	//fclose($fh);
+} 
+  mysqli_close($con);
+}
+?>

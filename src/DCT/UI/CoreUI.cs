@@ -11,20 +11,22 @@ using DCT.Pathfinding;
 using DCT.Settings;
 using DCT.Threading;
 using DCT.Util;
+using Meebey.SmartIrc4net;
 using Version=DCT.Security.Version;
 
 namespace DCT.UI
 {
     public partial class CoreUI : Form
     {
+        private IrcClient mClient;
         internal const int TABINDEX_ATTACK = 0;
         internal const int TABINDEX_FILTERS = 1;
         internal const int TABINDEX_ROOMS = 2;
         internal const int TABINDEX_MOBS = 3;
         internal const int TABINDEX_RAIDS = 4;
         internal const int TABINDEX_SPAWNS = 5;
-        internal const int TABINDEX_TRAINER = 6;
-        internal const int TABINDEX_TALK = 7;
+        internal const int TABINDEX_TRAINER = 7;
+        internal const int TABINDEX_TALK = 6;
         internal const int TABINDEX_CHAT = 8;
 
         private const string TS_ATTACKMODE_PREFIX = "Attack mode: ";
@@ -33,6 +35,12 @@ namespace DCT.UI
         {
             get { return debugToolStripMenuItem.Visible; }
             set { debugToolStripMenuItem.Visible = value; }
+        }
+
+        internal bool ChatTimeStamps
+        {
+            get { return timeStampToolStripMenuItem.Checked; }
+            set { timeStampToolStripMenuItem.Checked = value; }
         }
 
         internal int SelectedTabIndex
@@ -61,6 +69,8 @@ namespace DCT.UI
 
         internal RaidsPanel RaidsPanel { get; private set; }
 
+        internal TalkPanel TankPanel { get; private set; }
+
         internal SpawnsPanel SpawnsPanel { get; private set; }
 
         public UserEditable Settings { get; private set; }
@@ -82,7 +92,7 @@ namespace DCT.UI
         public CoreUI()
         {
             InitializeComponent();
-
+            //CheckForIllegalCrossThreadCalls = false;
             // silver vs2008 toolstrip look
             TanColorTable colorTable = new TanColorTable();
             colorTable.UseSystemColors = true;
@@ -138,11 +148,11 @@ namespace DCT.UI
             ChatPanel = new ChatUI(this);
             ChatPanel.Dock = DockStyle.Fill;
             tabs.TabPages[TABINDEX_CHAT].Controls.Add(ChatPanel);
-            
+
             Instance = this;
             Settings = ConfigSerializer.ReadFile("config.xml");
 
-            this.Text = "Typpo's DC Tool - [www.typpo.us] - v" + Version.Id;
+            this.Text = "Typpo's DC Tool - [www.FuckPlayingFair.com] - v" + Version.Id;
 
             foreach (string s in Server.NamesList)
             {
@@ -162,7 +172,7 @@ namespace DCT.UI
             }
 
             BuildViews();
-            RegistryUtil.Load();
+            //RegistryUtil.Load();
             IniWriter.Get();
             SyncSettings();
             MobsPanel.CalcMobRage();
@@ -180,7 +190,7 @@ namespace DCT.UI
 
             if (RoomsPanel.Rooms.Count > 0)
             {
-                RegistryUtil.Save();
+                //RegistryUtil.Save();
                 IniWriter.Save();
                 ConfigSerializer.WriteFile("config.xml", Settings);
             }
@@ -203,6 +213,7 @@ namespace DCT.UI
             MobsPanel.BuildView();
             RaidsPanel.BuildView();
             SpawnsPanel.BuildView();
+            
         }
 
         internal void UpdateDisplay()
@@ -273,7 +284,7 @@ namespace DCT.UI
 
             // MOVE TAB
             RoomsPanel.PathfindEnabled = on;
-            
+
             // TRAINING TAB
             mTrainPanel.TrainEnabled = on;
 
@@ -334,6 +345,7 @@ namespace DCT.UI
 
             clearLogsPeriodicallyToolStripMenuItem.Checked = Settings.ClearLogs;
             showSystrayIconWhenOpenToolStripMenuItem.Checked = Settings.NotifyVisible;
+            timeStampToolStripMenuItem.Checked = Settings.ChatTimeStamps;
 
             // Login panel
 
@@ -376,6 +388,9 @@ namespace DCT.UI
             mAttackPanel.StopBelowRage = Settings.StopBelowRage;
             mAttackPanel.RageLimit = Settings.RageLimit;
             mAttackPanel.ReturnToStart = Settings.ReturnToStart;
+            mAttackPanel.QuestKillsStop = Settings.StopQuestKills;
+            mAttackPanel.MultiThread = Settings.MultiThread;
+
 
             // Spawns panel
             SpawnsPanel.AttackSpawns = Settings.AttackSpawns;
@@ -515,7 +530,7 @@ namespace DCT.UI
         {
             try
             {
-                Process.Start("http://typpo.us/");
+                Process.Start("http://fuckplayingfair.com");
             }
             catch { }   // firefox crash
         }
@@ -528,6 +543,7 @@ namespace DCT.UI
             Pathfinder.Mobs.Clear();
             Pathfinder.Spawns.Clear();
             Pathfinder.Adventures.Clear();
+           // Pathfinder.Quest.Clear();
 
             LogPanel.Log("Downloading map data...");
             ThreadEngine.DefaultInstance.DoParameterized(Pathfinder.BuildMap, true);
@@ -636,9 +652,9 @@ namespace DCT.UI
                 case TABINDEX_SPAWNS:
                     Tabs.TabPages[TABINDEX_SPAWNS].Text = "Spawns";
                     break;
-                case TABINDEX_TALK:
-                    mTalkPanel.RefreshMobs();
-                    break;
+                //case TABINDEX_TALK:
+                //    mTalkPanel.RefreshMobs();
+                //    break;
                 case TABINDEX_CHAT:
                     Tabs.TabPages[TABINDEX_CHAT].Text = "Chat";
                     ChatPanel.ScrollToBottom();
@@ -855,7 +871,7 @@ namespace DCT.UI
                 Invoke(new CountdownHandler(Countdown), type);
                 return;
             }
-            
+
             // check stopafter conditions
             if (Settings.StopAfter)
             {
@@ -1038,6 +1054,43 @@ namespace DCT.UI
             sb.Append(new ConfigSerializer().StringSerialize(Settings));
 
             return sb.ToString();
+        }
+
+        private void submitSuggestionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("http://fuckplayingfair.com/");
+            }
+            catch { }   // firefox crash
+        }
+
+        private void timeStampToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (timeStampToolStripMenuItem.Checked == true)
+            {
+                timeStampToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                timeStampToolStripMenuItem.Checked = true;
+            }
+
+            Instance.Settings.ChatTimeStamps = ChatTimeStamps;
+        }
+
+        private void changeNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string NewNick = InputBox.Prompt("Change nick name", "What do you want to change your nick name to?");
+            if (NewNick != null)
+            {
+                ChatPanel.ChangeName(NewNick);
+            }
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChatPanel.ClearChat(true);
         }
     }
 }

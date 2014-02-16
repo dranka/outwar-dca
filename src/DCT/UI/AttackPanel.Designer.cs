@@ -29,6 +29,8 @@ namespace DCT.UI
         private void InitializeComponent()
         {
             this.grpSettings = new System.Windows.Forms.GroupBox();
+            this.chkMultiThread = new System.Windows.Forms.CheckBox();
+            this.chkQuestKills = new System.Windows.Forms.CheckBox();
             this.pnlMainPanel = new System.Windows.Forms.Panel();
             this.chkReturnToStart = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,6 +56,8 @@ namespace DCT.UI
             // 
             // grpSettings
             // 
+            this.grpSettings.Controls.Add(this.chkMultiThread);
+            this.grpSettings.Controls.Add(this.chkQuestKills);
             this.grpSettings.Controls.Add(this.pnlMainPanel);
             this.grpSettings.Controls.Add(this.chkReturnToStart);
             this.grpSettings.Controls.Add(this.label8);
@@ -76,6 +80,28 @@ namespace DCT.UI
             this.grpSettings.TabIndex = 6;
             this.grpSettings.TabStop = false;
             this.grpSettings.Text = "Settings";
+            // 
+            // chkMultiThread
+            // 
+            this.chkMultiThread.AutoSize = true;
+            this.chkMultiThread.Location = new System.Drawing.Point(6, 209);
+            this.chkMultiThread.Name = "chkMultiThread";
+            this.chkMultiThread.Size = new System.Drawing.Size(121, 17);
+            this.chkMultiThread.TabIndex = 40;
+            this.chkMultiThread.Text = "MultiThread Attacks";
+            this.chkMultiThread.UseVisualStyleBackColor = true;
+            this.chkMultiThread.CheckedChanged += new System.EventHandler(this.chkMultiThread_CheckedChanged);
+            // 
+            // chkQuestKills
+            // 
+            this.chkQuestKills.AutoSize = true;
+            this.chkQuestKills.Location = new System.Drawing.Point(8, 186);
+            this.chkQuestKills.Name = "chkQuestKills";
+            this.chkQuestKills.Size = new System.Drawing.Size(194, 17);
+            this.chkQuestKills.TabIndex = 7;
+            this.chkQuestKills.Text = "Stop when done required quest kills";
+            this.chkQuestKills.UseVisualStyleBackColor = true;
+            this.chkQuestKills.CheckedChanged += new System.EventHandler(this.chkQuestKills_CheckedChanged);
             // 
             // pnlMainPanel
             // 
@@ -101,7 +127,7 @@ namespace DCT.UI
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(188, 148);
+            this.label8.Location = new System.Drawing.Point(189, 143);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 13);
             this.label8.TabIndex = 33;
@@ -114,7 +140,7 @@ namespace DCT.UI
             0,
             0,
             0});
-            this.numTimeout.Location = new System.Drawing.Point(294, 165);
+            this.numTimeout.Location = new System.Drawing.Point(295, 160);
             this.numTimeout.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -139,7 +165,7 @@ namespace DCT.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(210, 167);
+            this.label5.Location = new System.Drawing.Point(211, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 29;
@@ -310,6 +336,8 @@ namespace DCT.UI
         private System.Windows.Forms.CheckBox chkReturnToStart;
         private System.Windows.Forms.Panel pnlMainPanel;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chkQuestKills;
+        private System.Windows.Forms.CheckBox chkMultiThread;
 
     }
 }

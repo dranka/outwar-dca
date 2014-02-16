@@ -37,12 +37,13 @@ namespace DCT.UI
             this.lnkMobLoad = new System.Windows.Forms.LinkLabel();
             this.lnkUncheckMobs = new System.Windows.Forms.LinkLabel();
             this.lvMobs = new System.Windows.Forms.ListView();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnMobGo = new System.Windows.Forms.Button();
+            this.lnkUncheck = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lnkMobSave
@@ -150,8 +151,8 @@ namespace DCT.UI
             this.lvMobs.TabIndex = 9;
             this.lvMobs.UseCompatibleStateImageBehavior = false;
             this.lvMobs.View = System.Windows.Forms.View.Details;
-            this.lvMobs.SelectedIndexChanged += new System.EventHandler(this.lvMobs_SelectedIndexChanged);
             this.lvMobs.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvMobs_ColumnClick);
+            this.lvMobs.SelectedIndexChanged += new System.EventHandler(this.lvMobs_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
@@ -187,10 +188,22 @@ namespace DCT.UI
             this.btnMobGo.UseVisualStyleBackColor = true;
             this.btnMobGo.Click += new System.EventHandler(this.btnMobGo_Click);
             // 
+            // lnkUncheck
+            // 
+            this.lnkUncheck.AutoSize = true;
+            this.lnkUncheck.Location = new System.Drawing.Point(125, 258);
+            this.lnkUncheck.Name = "lnkUncheck";
+            this.lnkUncheck.Size = new System.Drawing.Size(103, 13);
+            this.lnkUncheck.TabIndex = 19;
+            this.lnkUncheck.TabStop = true;
+            this.lnkUncheck.Text = "Uncheck by name...";
+            this.lnkUncheck.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkUncheck_LinkClicked);
+            // 
             // MobsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lnkUncheck);
             this.Controls.Add(this.btnMobGo);
             this.Controls.Add(this.lnkMobSave);
             this.Controls.Add(this.lnkMobsSelect);
@@ -225,5 +238,6 @@ namespace DCT.UI
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button btnMobGo;
+        private System.Windows.Forms.LinkLabel lnkUncheck;
     }
 }

@@ -65,7 +65,15 @@ namespace DCT.UI
             Dictionary<int, string> rooms = new Dictionary<int, string>();
             foreach (int i in RoomsPanel.CheckedIndices)
             {
-                rooms.Add(int.Parse(RoomsPanel.Rooms[i].SubItems[1].Text), RoomsPanel.Rooms[i].Text);
+                try
+                {
+                    rooms.Add(int.Parse(RoomsPanel.Rooms[i].SubItems[1].Text), RoomsPanel.Rooms[i].Text);
+                }
+                catch (Exception ex)
+                {
+                    CoreUI.Instance.LogPanel.Log(ex.ToString());
+                }
+
             }
 
             SetUpHandler();
@@ -270,6 +278,8 @@ namespace DCT.UI
             d.BeginInvoke(indices, room, BulkMoveCallback, d);
         }
 
+
+
         private void BulkMoveCallback(IAsyncResult ar)
         {
             BulkMoveHandler d = (BulkMoveHandler)ar.AsyncState;
@@ -313,11 +323,18 @@ namespace DCT.UI
 
         #region Training
 
+        public void ThreadPoolCallback(Object threadContext)
+        {
+            int i = Convert.ToInt32(threadContext);
+            AccountsPanel.Engine[i].Mover.Socket.Get("levelup.php");
+            CoreUI.Instance.LogPanel.Log(AccountsPanel.Engine[i].Mover.Account.Name + " has been leveled.");
+        }
+
         internal void InvokeTraining(bool returnToStart)
         {
             if (AccountsPanel.CheckedIndices.Count < 1)
             {
-                LogPanel.Log("E: Check the accounts you want to move");
+                LogPanel.Log("E: Check the accounts you want to train");
                 return;
             }
 
@@ -326,22 +343,44 @@ namespace DCT.UI
             foreach (int index in AccountsPanel.CheckedIndices)
             {
                 AccountsPanel.Engine[index].Mover.RefreshRoom();
-                AccountsPanel.Engine[index].Mover.ReturnToStartHandler.SetOriginal();
-                ThreadEngine.DefaultInstance.Enqueue(AccountsPanel.Engine[index].Mover.Train);
-            }
-
-            // TODO this needs to go - convert to ThreadPool
-            ThreadEngine.DefaultInstance.ProcessAll();
-
-            if (returnToStart)
-            {
-                foreach (int index in AccountsPanel.CheckedIndices)
+                if (AccountsPanel.Engine[index].Mover.Account.NeedsLevel)
                 {
-                    AccountsPanel.Engine[index].Mover.ReturnToStartHandler.InvokeReturn();
-                    // TODO not necessary to thread this - it already is threaded
-                    //InvokeReturn(index);
+                    string i = index.ToString();
+                    ThreadPool.QueueUserWorkItem(ThreadPoolCallback, i);
+                    Threading.ThreadEngine.Sleep(50);
+                    
                 }
+                else
+                {
+                    CoreUI.Instance.LogPanel.Log(AccountsPanel.Engine[index].Mover.Account.Name + " does not need to be leveled.");
+                }
+            //    AccountsPanel.Engine[index].Mover.RefreshRoom();
+            //    if (AccountsPanel.Engine[index].Mover.Account.NeedsLevel)
+            //    {
+            //        //AccountsPanel.Engine[index].Mover.Account.Socket.Get("levelup.php");
+            //        //CoreUI.Instance.LogPanel.Log("Leveling up " + AccountsPanel.Engine[index].Mover.Account.Name);
+            //        ThreadEngine.DefaultInstance.Enqueue(AccountsPanel.Engine[index].Mover.Train);
+            //    }
+            //    else
+            //    {
+            //        CoreUI.Instance.LogPanel.Log(AccountsPanel.Engine[index].Mover.Account.Name + " does not need to be leveled.");
+            //    }
+            //   // AccountsPanel.Engine[index].Mover.ReturnToStartHandler.SetOriginal();
+                
             }
+
+            //// TODO this needs to go - convert to ThreadPool
+            //ThreadEngine.DefaultInstance.ProcessAll();
+
+            //if (returnToStart)
+            //{
+            //    foreach (int index in AccountsPanel.CheckedIndices)
+            //    {
+            //        AccountsPanel.Engine[index].Mover.ReturnToStartHandler.InvokeReturn();
+            //        // TODO not necessary to thread this - it already is threaded
+            //        //InvokeReturn(index);
+            //    }
+            //}
 
             Toggle(true);
         }

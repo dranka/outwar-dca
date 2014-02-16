@@ -45,6 +45,7 @@ namespace DCT.UI
             this.txtMain.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMain.Size = new System.Drawing.Size(519, 315);
             this.txtMain.TabIndex = 0;
+            this.txtMain.TextChanged += new System.EventHandler(this.txtMain_TextChanged);
             // 
             // lblMain
             // 
@@ -66,7 +67,7 @@ namespace DCT.UI
             this.lnkGo.Text = "OK";
             this.lnkGo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGo_LinkClicked);
             // 
-            // frmStart
+            // StartDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -75,7 +76,7 @@ namespace DCT.UI
             this.Controls.Add(this.lblMain);
             this.Controls.Add(this.txtMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmStart";
+            this.Name = "StartDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmStart_Load);
             this.ResumeLayout(false);

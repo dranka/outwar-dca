@@ -62,6 +62,7 @@ namespace DCT.UI
             this.lstChat.Location = new System.Drawing.Point(0, 11);
             this.lstChat.Name = "lstChat";
             this.lstChat.Size = new System.Drawing.Size(89, 251);
+            this.lstChat.Sorted = true;
             this.lstChat.TabIndex = 5;
             this.lstChat.Click += new System.EventHandler(this.lstChat_Click);
             // 

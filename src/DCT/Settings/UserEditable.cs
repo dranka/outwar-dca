@@ -29,6 +29,8 @@ namespace DCT.Settings
         public bool UseCountdownTimer { get; set; }
         [XmlElement("UseHourTimer")]
         public bool UseHourTimer { get; set; }
+        [XmlElement("ChatTimeStamps")]
+        public bool ChatTimeStamps { get; set; }
         [XmlElement("ReturnToStart")]
         public bool ReturnToStart { get; set; }
         [XmlElement("AttackMode")]
@@ -51,6 +53,10 @@ namespace DCT.Settings
         public bool AttackSpawns { get; set; }
         [XmlElement("IgnoreSpawnRage")]
         public bool IgnoreSpawnRage { get; set; }
+        [XmlElement("MultiThread")]
+        public bool MultiThread { get; set; }
+        [XmlElement("QuestKills")]
+        public bool StopQuestKills { get; set; }
         [XmlElement("LastUsername")]
         public string LastUsername { get; set; }
         [XmlElement("LastPassword")]
@@ -112,6 +118,10 @@ namespace DCT.Settings
             StopAfter = false;
             StopAfterVal = 1;
             StopAfterMode = StopAfterType.Runs;
+
+            StopQuestKills = false;
+            MultiThread = true;
+            ChatTimeStamps = true;
 
             Server = 1;
         }

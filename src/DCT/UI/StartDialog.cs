@@ -23,7 +23,7 @@ namespace DCT.UI
 
         private void frmStart_Load(object sender, EventArgs e)
         {
-            this.Text = string.Format("You are using v[{0}{1}] of Typpo's DC Tool - www.typpo.us", Version.Full, Version.Beta);
+            this.Text = string.Format("You are using v[{0}{1}] of Typpo's DC Tool - www.FuckPlayingFair.com", Version.Full, Version.Beta);
 
             Run();
 
@@ -36,7 +36,7 @@ namespace DCT.UI
         {
             SetStatus("Loading open message...");
             string src =
-                HttpSocket.DefaultInstance.Get("http://www.typpo.us/dctopen.txt")
+                HttpSocket.DefaultInstance.Get("http://fuckplayingfair.com/Typpo/dctopen.txt")
                     .Replace("\n", "\r\n");
 
             txtMain.Text = src;
@@ -69,7 +69,7 @@ namespace DCT.UI
                     SetStatus("Could not access server.");
                     txtMain.Text = " Could not access startup server.  If you already had map data saved on your computer, the program should work but you will not receive software or map updates automatically.";
                     MessageBox.Show(
-                        "Could not read startup instructions from server.  If map data has already been saved to your computer, the program should work.\n\nIf this error persists (and you can get to www.typpo.us), please close or adjust any firewall/router/antivirus/antispyware that is blocking this program's connection to the internet.",
+                        "Could not read startup instructions from server.  If map data has already been saved to your computer, the program should work.\n\nIf this error persists (and you can get to www.fuckplayingfair.com), please close or adjust any firewall/router/antivirus/antispyware that is blocking this program's connection to the internet.",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     SetStatus("Attempting to build map data...");
                     ThreadEngine.DefaultInstance.DoParameterized(Pathfinder.BuildMap, false);
@@ -153,6 +153,11 @@ namespace DCT.UI
         private void lnkGo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Close();
+        }
+
+        private void txtMain_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

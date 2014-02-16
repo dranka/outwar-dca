@@ -42,7 +42,7 @@ namespace DCT.UI.Questing
             {
                 loggedIn = true;
                 // successfully passed rg_sessid
-                if (!wb.Document.Title.Contains("Outwar.com Account Management"))
+                if (!wb.Document.Title.Contains("Outwar | Browser Based"))
                 {
                     wb.Document.Body.InnerHtml = "Sorry, talk failed.";
                     failed = true;

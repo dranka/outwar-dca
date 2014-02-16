@@ -55,10 +55,19 @@ namespace DCT.Parsing
             try
             {
                 return whole.Substring(0, whole.IndexOf(cutoff));
+
             }
-            catch (ArgumentOutOfRangeException)
+            catch (Exception Ex)
             {
+                if (Ex is StackOverflowException || Ex is ArgumentOutOfRangeException)
+                {
                 return ERR_CONST;
+                }
+                else
+                {
+                return ERR_CONST;
+                }
+
             }
         }
 

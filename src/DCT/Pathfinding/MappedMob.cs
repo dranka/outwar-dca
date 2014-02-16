@@ -1,4 +1,5 @@
 using System;
+using DCT.Outwar.World;
 
 namespace DCT.Pathfinding
 {

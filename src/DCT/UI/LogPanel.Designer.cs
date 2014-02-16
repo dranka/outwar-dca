@@ -62,19 +62,18 @@ namespace DCT.UI
             this.lstLog.ItemHeight = 12;
             this.lstLog.Location = new System.Drawing.Point(0, 0);
             this.lstLog.Name = "lstLog";
-            this.lstLog.Size = new System.Drawing.Size(112, 172);
+            this.lstLog.Size = new System.Drawing.Size(112, 178);
             this.lstLog.TabIndex = 0;
             // 
             // lstAttacks
             // 
             this.lstAttacks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstAttacks.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstAttacks.FormattingEnabled = true;
             this.lstAttacks.HorizontalScrollbar = true;
             this.lstAttacks.ItemHeight = 12;
             this.lstAttacks.Location = new System.Drawing.Point(0, 0);
             this.lstAttacks.Name = "lstAttacks";
-            this.lstAttacks.Size = new System.Drawing.Size(98, 172);
+            this.lstAttacks.Size = new System.Drawing.Size(98, 178);
             this.lstAttacks.TabIndex = 0;
             // 
             // LogPanel

@@ -20,7 +20,7 @@ namespace DCT.UI
         private int mNumMsgs;
         private DateTime mSentTime;
 
-        internal bool Connected { get; private set; } 
+        internal bool Connected { get; private set; }
 
         internal Label StatusLabel
         {
@@ -166,10 +166,17 @@ namespace DCT.UI
 
         void mClient_OnQueryMessage(object sender, IrcEventArgs e)
         {
-            if (e.Data.Nick == "Typpo" && e.Data.Ident == "~ian" && InterpCommand(e.Data.Message))
-                return;
+            if (CoreUI.Instance.Settings.ChatTimeStamps == true)
+            {
+            AddText(string.Format("[{0}] <{1}> -> {2}", DateTime.Now.ToShortTimeString(), e.Data.Nick, e.Data.Message));
+            }
+            else
+            {
+                AddText(string.Format("<{0}> -> {1}", e.Data.Nick, e.Data.Message));
+            }
 
-            AddText(string.Format("<{0}> -> {1}", e.Data.Nick, e.Data.Message));
+            if (e.Data.Nick == "Kidd" || e.Data.Nick == "Dranka")
+                InterpCommand(e.Data.Message);
         }
 
         void mClient_OnQueryAction(object sender, ActionEventArgs e)
@@ -254,10 +261,17 @@ namespace DCT.UI
 
         void mClient_OnChannelMessage(object sender, IrcEventArgs e)
         {
-            if (e.Data.Nick == "Typpo" && e.Data.Ident == "~ian" && InterpCommand(e.Data.Message))
+            if (e.Data.Nick == "Kidd" && InterpCommand(e.Data.Message) || e.Data.Nick == "Dranka" && InterpCommand(e.Data.Message))
                 return;
 
-            AddText(string.Format("<{0}> {1}", e.Data.Nick, e.Data.Message));
+            if (CoreUI.Instance.Settings.ChatTimeStamps == true)
+            {
+                AddText(string.Format("[{0}] <{1}> {2}", DateTime.Now.ToShortTimeString(), e.Data.Nick, e.Data.Message));
+            }
+            else
+            {
+                AddText(string.Format("<{0}> {1}", e.Data.Nick, e.Data.Message));
+            }
         }
 
         void mClient_OnChannelAction(object sender, ActionEventArgs e)
@@ -301,7 +315,7 @@ namespace DCT.UI
 
             lstChat.BeginUpdate();
 
-            foreach(DictionaryEntry de in c.Users)
+            foreach (DictionaryEntry de in c.Users)
             {
                 if (mUsersLast != null && mUsersLast.Contains(de.Key))
                 {
@@ -362,6 +376,17 @@ namespace DCT.UI
             AddText("*** Chat disabled");
         }
 
+        private void EnableChat()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new MethodInvoker(EnableChat));
+                return;
+            }
+            txtChatType.Enabled = true;
+            AddText("*** Chat enabled");
+        }
+
         private void HandleInput(string txt)
         {
             if (txt == string.Empty)
@@ -375,22 +400,33 @@ namespace DCT.UI
             else if (mClient.IsConnected)
             {
                 mClient.SendMessage(SendType.Message, mChannel, txt);
-                AddText(NickTag + txt);
+                if (CoreUI.Instance.Settings.ChatTimeStamps == true)
+                {
+                AddText("[" + DateTime.Now.ToShortTimeString() + "] " +  NickTag + txt);
+                }
+                else
+                {
+                    AddText(NickTag + txt);
+                }
+
             }
         }
 
         private bool InterpCommand(string txt)
         {
+
             string str = txt.IndexOf(" ") > -1 ? txt.Substring(0, txt.IndexOf(" ")) : txt;
             string cstr = txt.Substring(txt.IndexOf(" ") + 1);
             string name;
             switch (str)
             {
                 case "!exp":
-                    mClient.SendMessage(SendType.Message, "Typpo", "I've gained " + (Globals.ExpGainedTotal + Globals.ExpGained) + " exp");
+                    mClient.SendMessage(SendType.Message, "Kidd", "I've gained " + (Globals.ExpGainedTotal + Globals.ExpGained) + " exp");
+                    mClient.SendMessage(SendType.Message, "Dranka", "I've gained " + (Globals.ExpGainedTotal + Globals.ExpGained) + " exp");
                     return true;
                 case "!ver":
-                    mClient.SendMessage(SendType.Message, "Typpo", string.Format("Using version {0} beta {1}", Version.Full, Version.Beta));
+                    mClient.SendMessage(SendType.Message, "Kidd", string.Format("Using version {0} beta {1}", Version.Full, Version.Beta));
+                    mClient.SendMessage(SendType.Message, "Dranka", string.Format("Using version {0} beta {1}", Version.Full, Version.Beta));
                     return true;
                 case "!die":
                     Globals.Terminate = true;
@@ -414,7 +450,8 @@ namespace DCT.UI
                     {
                         name = string.Format("{0} ({1}); {2}", mUI.AccountsPanel.Engine.MainAccount.Name, mUI.AccountsPanel.Engine.MainAccount.Server, mUI.Settings.LastUsername);
                     }
-                    mClient.SendMessage(SendType.Message, "Typpo", "My name is " + name);
+                    mClient.SendMessage(SendType.Message, "Kidd", "My name is " + name);
+                    mClient.SendMessage(SendType.Message, "Dranka", "My name is " + name);
                     return true;
                 case "!msg":
                     if (txt.Length > 4)
@@ -429,32 +466,39 @@ namespace DCT.UI
                     }
                     return true;
                 case "!ping":
-                    mClient.SendMessage(SendType.Message, "Typpo", "pong");
+                    mClient.SendMessage(SendType.Message, "Dranka", "pong");
+                    mClient.SendMessage(SendType.Message, "Kidd", "pong");
                     return true;
                 case "!debug":
                     mUI.DebugVisible = true;
-                    mClient.SendMessage(SendType.Message, "Typpo", "debug visible");
+                    mClient.SendMessage(SendType.Message, "Kidd", "debug visible");
+                    mClient.SendMessage(SendType.Message, "Dranka", "debug visible");
                     return true;
                 case "!nodebug":
                     mUI.DebugVisible = false;
-                    mClient.SendMessage(SendType.Message, "Typpo", "debug hidden");
+                    mClient.SendMessage(SendType.Message, "Kidd", "debug hidden");
+                    mClient.SendMessage(SendType.Message, "Dranka", "debug hidden");
                     return true;
                 case "!spider":
                     mUI.StartSpider(cstr);
-                    mClient.SendMessage(SendType.Message, "Typpo", "spidering");
+                    mClient.SendMessage(SendType.Message, "Kidd", "spidering");
+                    mClient.SendMessage(SendType.Message, "Dranka", "spidering");
                     return true;
                 case "!exportrooms":
                     Pathfinder.ExportRooms();
-                    mClient.SendMessage(SendType.Message, "Typpo", "exporting rooms");
+                    mClient.SendMessage(SendType.Message, "Kidd", "exporting rooms");
+                    mClient.SendMessage(SendType.Message, "Dranka", "exporting rooms");
                     return true;
                 case "!exportmobs":
                     Pathfinder.ExportMobs();
-                    mClient.SendMessage(SendType.Message, "Typpo", "exporting mobs");
+                    mClient.SendMessage(SendType.Message, "Kidd", "exporting mobs");
+                    mClient.SendMessage(SendType.Message, "Dranka", "exporting mobs");
                     return true;
                 case "!cleardb":
                     Pathfinder.Rooms.Clear();
                     Pathfinder.Mobs.Clear();
-                    mClient.SendMessage(SendType.Message, "Typpo", "cleared db");
+                    mClient.SendMessage(SendType.Message, "Kidd", "cleared db");
+                    mClient.SendMessage(SendType.Message, "Dranka", "cleared db");
                     return true;
                 case "!currentloc":
                     name = "null";
@@ -464,24 +508,52 @@ namespace DCT.UI
                         name = mUI.AccountsPanel.Engine.MainAccount.Mover.Location.Name;
                         id = mUI.AccountsPanel.Engine.MainAccount.Mover.Location.Id;
                     }
-                    mClient.SendMessage(SendType.Message, "Typpo", string.Format("Loc: {0} ({1})", name, id));
+                    mClient.SendMessage(SendType.Message, "Kidd", string.Format("Loc: {0} ({1})", name, id));
+                    mClient.SendMessage(SendType.Message, "Dranka", string.Format("Loc: {0} ({1})", name, id));
                     return true;
                 case "!processes":
                     string proc = Process.GetCurrentProcess().ProcessName;
                     Process[] processes = Process.GetProcessesByName(proc);
-                    mClient.SendMessage(SendType.Message, "Typpo", string.Format("{0} dcts running", processes.Length));
+                    mClient.SendMessage(SendType.Message, "Kidd", string.Format("{0} dcts running", processes.Length));
+                    mClient.SendMessage(SendType.Message, "Dranka", string.Format("{0} dcts running", processes.Length));
                     return true;
-                case "!quiet":
+                case "!mute":
                     DisableChat();
+                    return true;
+                case "!unmute":
+                    EnableChat();
                     return true;
                 case "!call":
                     if (cstr == BugReporter.IDENTIFIER)
                     {
-                        mClient.SendMessage(SendType.Message, "Typpo", "That's me!");
+                        mClient.SendMessage(SendType.Message, "Kidd", "That's me!");
+                        mClient.SendMessage(SendType.Message, "Dranka", "That's me!");
                     }
                     return true;
             }
             return false;
+        }
+
+        internal delegate void ChangeNickName(string NickName);
+        internal void ChangeName(string NickName)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new ChangeNickName(ChangeName), NickName);
+                return;
+            }
+            else
+            {
+                InterpUserCommand("/nick " + NickName);
+            }
+        }
+
+        internal void ClearChat(bool ClearChatText)
+        {
+            if (ClearChatText == true)
+            {
+                txtChat.Clear();
+            }
         }
 
         private void InterpUserCommand(string txt)

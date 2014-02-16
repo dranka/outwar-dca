@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DCT.Parsing;
 using DCT.Pathfinding;
+using DCT.Threading;
 using DCT.Settings;
 using DCT.UI;
 
@@ -19,6 +20,18 @@ namespace DCT.Outwar.World
         internal bool IsSpawn { get; private set; }
         internal bool Attacking { get; private set; }
         private bool mQuit;
+
+        public string[] RemoveDuplicates(string[] myList)
+        {
+            System.Collections.ArrayList newList = new System.Collections.ArrayList();
+
+            foreach (string str in myList)
+                if (!newList.Contains(str))
+                    newList.Add(str);
+            return (string[])newList.ToArray(typeof(string));
+        }
+
+
 
         private bool FilterOK
         {
@@ -77,19 +90,18 @@ namespace DCT.Outwar.World
         internal long Level
         {
             get { return mLevel; }
-            set { mLevel = value; }
+            set { mLevel = Level; }
         }
 
         internal long Rage
         {
             get { return mRage; }
-            set { mRage = value; }
+            set { mRage = Rage; }
         }
-
         private bool mSkipLoad;
         private string mAttackUrl;
 
-        internal Mob(string name, string url, string attackurl, bool isQuest, bool isTrainer, bool isSpawn, Room room) : base(name, url, room)
+          internal Mob(string name, string url, string attackurl, bool isQuest, bool isTrainer, bool isSpawn, Room room) : base(name, url, room)
         {
             mAttackUrl = attackurl;
             IsTalkable = isQuest;
@@ -99,6 +111,9 @@ namespace DCT.Outwar.World
             // add it to collector if we don't already have it in the database, excluding spawns
             if (Pathfinding.Pathfinder.Mobs.Find(delegate(Pathfinding.MappedMob m) { return m.Name.Equals(name) && (m.Id == mId || mId > 1000000); }) == null)
             {
+
+                Initialize();
+
                 // it's new
                 Pathfinding.MobCollector.Add(this);
             }
@@ -122,15 +137,17 @@ namespace DCT.Outwar.World
 
             // Parse level and rage
             Parser mm = new Parser(mLoadSrc);
-            if (!long.TryParse(mm.Parse("(Level ", ")"), out mLevel)
-                || !long.TryParse(mm.Parse("Attack!</a> (<b>", " rage"), out mRage))
+            if (!long.TryParse(mm.Parse("(Level ", ")</b></font>"), out mLevel)
+                || !long.TryParse(mm.Parse("Attack!</a> (<b>", " rage</b>)"), out mRage))
             {
+
                 mQuit = true;
                 return;
-            }
+           }
 
             mInitialized = true;
         }
+
 
         private bool TestRage(bool useRageLimit)
         {
@@ -212,11 +229,10 @@ namespace DCT.Outwar.World
         {
             if (mRoom.Mover.Account.NeedsLevel)
             {
-                CoreUI.Instance.LogPanel.Log("Leveling up " + mRoom.Mover.Account.Name + " automatically with bartender "
-                                    + mName
-                                    + "...");
-                Initialize();
-                mRoom.Mover.Socket.Get("mob_train.php?id=" + Parser.Parse(mLoadSrc, "mob_train.php?id=", "\""));
+                    CoreUI.Instance.LogPanel.Log("Leveling up " + mRoom.Mover.Account.Name + " automatically " + "...");
+                    Initialize();
+               // mRoom.Mover.Socket.Get("mob_train.php?id=" + Parser.Parse(mLoadSrc, "mob_train.php?id=", "\""));
+                    mRoom.Mover.Account.Socket.Get("levelup.php");
             }
         }
 
@@ -293,13 +309,13 @@ namespace DCT.Outwar.World
                 mQuit = true;
                 return false;
             }
-            if (IsTrainer && CoreUI.Instance.Settings.AutoTrain)
+            if (CoreUI.Instance.Settings.AutoTrain && mRoom.Mover.Account.Rage <= 100 && mRoom.Mover.Account.NeedsLevel)
             {
                 Train();
             }
             if (IsTalkable && (CoreUI.Instance.Settings.AutoQuest || CoreUI.Instance.Settings.AlertQuests))
             {
-                //Talk();
+//talk()
             }
 
             if (
@@ -314,7 +330,15 @@ namespace DCT.Outwar.World
 
             if (mSkipLoad)
             {
-                SendAttack();
+                if (CoreUI.Instance.Settings.MultiThread == true)
+                {
+                    MethodInvoker d = SendAttack;
+                    d.BeginInvoke(AttackCallback, d);
+                }
+                    else
+                {
+                    SendAttack();
+                }
                 return true;
             }
 
@@ -335,11 +359,16 @@ namespace DCT.Outwar.World
                 return false;
             }
 
-            // Launch attack thread
-            //MethodInvoker d = SendAttack;
-            //d.BeginInvoke(AttackCallback, d);
-
-            SendAttack();
+            //Launch attack thread
+            if (CoreUI.Instance.Settings.MultiThread == true)
+            {
+                MethodInvoker d = SendAttack;
+                d.BeginInvoke(AttackCallback, d);
+            }
+            else
+            {
+                SendAttack();
+            }
 
             return true;
         }
@@ -355,11 +384,15 @@ namespace DCT.Outwar.World
 
             CoreUI.Instance.LogPanel.Log("Attacking " + mName + " (" + mId + ") in rm. " + mRoom.Id);
 
-            if (!mSkipLoad)
+            /*if (!mSkipLoad)
             {
-                mAttackUrl = "newattack.php" + new Parser(mLoadSrc).Parse("newattack.php", "\"");
-            }
-            EvaluateOutcome(mRoom.Mover.Socket.Get(mAttackUrl));
+                mAttackUrl = "somethingelse.php?attackid=" + new Parser(mLoadSrc).Parse("?attackid=", "&r=world") + "&r=world";
+            }*/
+            var tempURL = mRoom.Mover.Socket.Get(mAttackUrl);
+            EvaluateOutcome(tempURL);
+
+            //reloads stats
+            //Room.Mover.Socket.Get("security_prompt.php");
 
             Attacking = false;
         }
@@ -471,7 +504,7 @@ namespace DCT.Outwar.World
             {
                 CoreUI.Instance.LogPanel.LogAttack(string.Format("{0} lost to {1}", mRoom.Mover.Account.Name, mName));
             }
-            else if (src.Contains("var battle_result"))
+            else if (src.Contains("battle_result"))
             {
                 // quest kill count
                 String killProgress = string.Empty;
@@ -480,6 +513,7 @@ namespace DCT.Outwar.World
                 if (m.Groups.Count > 0)
                 {
                     killProgress = m.Groups[0].Value;
+
                 }
 
                 // Build string to add to attack log.
@@ -499,10 +533,36 @@ namespace DCT.Outwar.World
                     attackLogString = string.Format("{0} beat {1}", mRoom.Mover.Account.Name, mName);
                 }
                 attackLogString += killProgress;
+
+                if (killProgress == "")
+                {
                 CoreUI.Instance.LogPanel.LogAttack(attackLogString);
+                }
+                else
+                {
+                    //Check to see if required kills has been met
+                    //If yes then stop attacking
+                if (CoreUI.Instance.Settings.StopQuestKills == true)
+                {
+                    string[] Kills = killProgress.Split('/');
+                    char[] MyChar = { ' ', 'k', 'i', 'l', 'l', 'e', 'd'};
+                    Kills[1] = Kills[1].TrimEnd(MyChar);
+                    int KillsDone = Int32.Parse(Kills[0]);
+                    int KillsNeeded = Int32.Parse(Kills[1]);
+
+                    if (KillsDone == KillsNeeded)
+                    {
+                        CoreUI.Instance.ToggleAttack(false);
+                        CoreUI.Instance.LogPanel.Log("Reached required kills");
+                    }
+                }
+                CoreUI.Instance.LogPanel.LogAttack(attackLogString);
+                }
+
+
 
                 // item dropped
-                if (src.Contains("Found "))
+                if (src.Contains("WIN: Found"))
                 {
                     //if (src.Contains("has no backpack space"))
                     //{
@@ -511,9 +571,10 @@ namespace DCT.Outwar.World
                     //}
                     //else
                     //{
-                        string[] fs = Parser.MultiParse(src, "Found ", "</b>");
+                    string[] fs = Parser.MultiParse(src, "Found ", "</b>");
                         if (fs.Length > 1)
                         {
+                            fs = RemoveDuplicates(fs);
                             bool reported = false;  // flag to keep track of whether this bug has been reported
                             for (int i = 1; i < fs.Length; i++)
                             {
@@ -521,9 +582,29 @@ namespace DCT.Outwar.World
                                 if (f.Length < MAX_ITEM_LEN)
                                 {
                                     CoreUI.Instance.LogPanel.LogAttack(string.Format("{0} found {1}", mRoom.Mover.Account.Name, f));
+                                    if (f.Contains(","))
+                                    {
+                                        string[] Items = f.Split(',');
+                                        CoreUI.Instance.TalkPanel.AddItem(Items[0].Trim(), mName);
+                                        CoreUI.Instance.TalkPanel.AddItem(Items[1].Trim(), mName);
+                                    }
+                                    else
+                                    {
+                                        CoreUI.Instance.TalkPanel.AddItem(f, mName);
+                                    }
                                     if (IsSpawn)
                                     {
                                         CoreUI.Instance.SpawnsPanel.Log(string.Format("{0} found {1}", mRoom.Mover.Account.Name, f));
+                                        if (f.Contains(","))
+                                        {
+                                            string[] Items = f.Split(',');
+                                            CoreUI.Instance.TalkPanel.AddItem(Items[0].Trim(), mName);
+                                            CoreUI.Instance.TalkPanel.AddItem(Items[1].Trim(), mName);
+                                        }
+                                        else
+                                        {
+                                            CoreUI.Instance.TalkPanel.AddItem(f, mName);
+                                        }
                                     }
                                 }
                                 else if (!reported)
@@ -532,7 +613,7 @@ namespace DCT.Outwar.World
                                     DCT.Util.BugReporter br = new DCT.Util.BugReporter();
                                     CoreUI.Instance.LogPanel.Log("Reporting item drop error...");
                                     br.ReportBug(string.Format("The following source code was autoreported (problem - item drop parse exceeded max length) - v.{0}:\n\n{1}",
-                                        DCT.Security.Version.Full, src), "autoreported@typpo.us");
+                                        DCT.Security.Version.Full, src), "dranka@fuckplayingfair.com");
                                     reported = true;
                                 }
                             }

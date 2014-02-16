@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Text;
+using System.Collections.Generic;
 using DCT.Outwar;
 using DCT.Pathfinding;
 using DCT.Protocols.Http;
@@ -329,5 +331,45 @@ namespace DCT.UI
         private delegate void LoginCallbackHandler(int n);
 
         #endregion
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string s = FileIO.LoadFileToString("Import Accounts");
+            if (s == null)
+            {
+                return;
+            }
+
+            foreach (string l in s.Split(new char[] { ',', '\n', '\r', ';', '\t' }))
+            {
+                ListViewItem lvItem = lvAccounts.FindItemWithText(l);
+
+                if (lvItem.Text == l.ToString())
+                {
+                    lvItem.Checked = true;
+
+                }  
+            }
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            List<string> rs = new List<string>();
+            foreach (ListViewItem m in lvAccounts.CheckedItems)
+            {
+                if (!rs.Contains(m.Text))
+                {
+                    rs.Add(m.Text);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            foreach (string s in rs)
+            {
+                sb.Append(s).Append("\n");
+            }
+            FileIO.SaveFileFromString("Export Accounts", "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+                "DCT Accounts.txt", sb.ToString());
+        }
+
     }
 }

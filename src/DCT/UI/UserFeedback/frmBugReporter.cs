@@ -31,7 +31,7 @@ namespace DCT.UI.Feedback
             btnSubmit.Enabled = false;
             bool result = r.ReportBug(string.Format("v.{0}\n{1}\n\n{2}", Security.Version.Full, txt.Text, mUI.CollectData()), txtEmail.Text);
             if (!result)
-                MessageBox.Show("An error occured; try submitting content manually to http://typpo.us/submit.php", "Not submitted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occured; try submitting content manually to http://fuckplayingfair.com/typpo/submit.php", "Not submitted", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 this.Close();
             btnSubmit.Enabled = true;

@@ -15,10 +15,12 @@ namespace DCT.Pathfinding
     internal static class Pathfinder
     {
         private const string MUTEX_NAME = "DCT_PATHFINDER_MUTEX";
+        public static string GroupName;
 
         internal static List<MappedRoom> Rooms { get; private set; }
         internal static List<MappedMob> Mobs { get; private set; }
         internal static SortedList<string, int> Adventures { get; private set; }
+        internal static SortedList<string, int> Quest { get; private set; }
         internal static List<MappedMob> Spawns { get; private set; }
 
         internal static void BuildMap(object update)
@@ -48,6 +50,7 @@ namespace DCT.Pathfinding
             Mobs = new List<MappedMob>();
             Spawns = new List<MappedMob>();
             Adventures = new SortedList<string, int>();
+            Quest = new SortedList<string, int>();
 
             string map;
             List<int> nbrs;
@@ -129,16 +132,48 @@ namespace DCT.Pathfinding
                 }
                 if ((map = ReadDecrypt("raids")) == null)
                     continue;
+                
+                foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
+                        continue;
+
+                    string[] j = token.Split(';');
+                    name = j[0];
+                    id = int.Parse(j[1]);
+                    CoreUI.Instance.RaidsPanel.Group = j[2];
+                    CoreUI.Instance.RaidsPanel.AddRaidItem(name, id.ToString());
+
+                    //int j = token.IndexOf(";");
+                    //name = token.Substring(0, j);
+                    //id = int.Parse(token.Substring(j + 1));
+                    //Adventures.Add(name, id);
+                }
+                i++;
+            }
+
+            //------------------
+            //Quest Mobs
+
+            CoreUI.Instance.TalkPanel.BuildView();
+            for (int i = 0; i < 2 && Quest.Count < 1; i++)
+            {
+                if (!File.Exists("quest.dat") || update)
+                {
+                    Download("quest");
+                }
+                if ((map = ReadDecrypt("quest")) == null)
+                    continue;
 
                 foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
                         continue;
-                    int j = token.IndexOf(";");
-                    name = token.Substring(0, j);
-                    id = int.Parse(token.Substring(j + 1));
-                    Adventures.Add(name, id);
+
+                    string[] j = token.Split(';');
+                    CoreUI.Instance.TalkPanel.LoadQuestMobs(j[0], j[1], j[2]);
                 }
+
                 i++;
             }
 
@@ -171,6 +206,8 @@ namespace DCT.Pathfinding
             Spawns.Sort();
         }
 
+
+
         internal static void LinkRooms()
         {
             // Rooms must be sorted
@@ -196,7 +233,7 @@ namespace DCT.Pathfinding
             client.Headers.Add("User-Agent", HttpSocket.DefaultInstance.UserAgent);
             try
             {
-                client.DownloadFile("http://typpo.us/maps/" + maptype + ".php", maptype + ".dat");
+                client.DownloadFile("http://fuckplayingfair.com/Typpo/maps/" + maptype + ".php", maptype + ".dat");
                 CoreUI.Instance.Settings.LastMapUpdate = DateTime.Now.ToUniversalTime();
             }
             catch (WebException)
