@@ -1,0 +1,108 @@
+ >> Typpo's DC Tool - Latest Version: 3.1.45 << 
+
+*** Send bug reports/suggestions by going to Actions > Report
+
+* Maps will now be updated every 5 hours automatically *
+
+Change History:
+
+02-09-2014:
+
+Changes in 3.1.45:
+
+- Moved potions to misc/other tab
+- Fixed rare crshing error
+- Internal improvments
+
+Changes in 3.1.44:
+
+- Minor bug fix to fury system.
+
+Changes in 3.1.43:
+
+- Added fury caster (Untested). It works based off your stop below rage settings.
+- Added room number up where it shows gold and exp
+- If fury caster works ok I will be adding exp boosters later this week.
+
+02-06-2014:
+
+Changes in 3.1.42:
+
+- More internal changes. In the next 48 - 72 hours mobs and quest will both automatically update twice a day. 
+- Re-enabled ling buff (still having minor issues so more updates to come for this)
+
+02-05-2014:
+
+Changes in 3.1.41:
+
+- Internal changes on how the program sends mobs
+- Mobs are now stored in a sql database automatically when "submitting mobs" appears, then dumped into the program twice a day at 11 am and pm
+- Ling buff will be re-activated in the next update.
+
+I am taking suggestions if you have any thing you want to see on typpos.
+
+02-02-2014:
+
+Changes in 3.1.40:
+
+- Fixed the move to room # feature from not being able to go higher then 15,000
+- Internal changes to the submit quest mob feature
+
+Other Updates:
+
+- Added over 2500 more mobs.
+- Quest mobs have been deleted so I can create a updated list.
+
+01-31-2014:
+
+Canges in 3.1.39:
+
+- Re-enabled multi threaded attacking
+- Redid the "train" tab so i can use it for more in future updates
+- Disabled the cast ling buff until I get a chance to fix it
+
+Other updates:
+
+- Added underground cavern
+
+01-30-2014:
+
+- Added more rooms
+- Added more mobs
+
+Mob Count: 112,873
+Room Count: 14,844
+
+Stay tuned for more updates. Any areas unmapped still let me know. Only things that should be left unmapped are any paid areas. If you want those mapped contact me after you do a run before you leave area and I can do it through trustee.
+
+Thanks everyone who gave feed back and bugs in the map and who lent me trustee access to make the map more complete.
+
+01-30-2014:
+
+Turned off the Debug menu and removed a tab from the quest pannel that was not yet coded.
+
+Feel free to send suggestions and ideas that you would like in future updates to dranka@fuckplayingfair.com 
+
+01-29-2014:
+
+This is the version of typpo that I (Dranka) will be working on and trying to get up to date. Everything should be the same from the corruptsource one. I lost access to that server and have no way to update so this is the next best option.
+
+I am going to need accounts to update map data with. If you would like to help please contact me via email at dranka@fuckplayingfair.com.
+
+
+
+
+
+
+
+
+End Changes 
+
+Info for the autoupdater: 
+<ver>3.1.45</ver> 
+<url>http://fuckplayingfair.com/Typpo/DCT 3.1.45.exe</url>
+ 
+<chan>#typpo</chan> 
+<svr>typpo.us</svr>
+<port>6667</port>
+<map>2014-02-15 16:02</map>
