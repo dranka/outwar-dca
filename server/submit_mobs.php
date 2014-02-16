@@ -1,7 +1,7 @@
 <?
-$path = 'mobs.submitted';
 
-$mobs = stripslashes($_POST['mobs']);
+
+$mobs = $_POST['mobs'];
 
 if ($mobs != NULL)
 {
@@ -9,9 +9,19 @@ if ($mobs != NULL)
 	{
 		return;
 	}
+$con=mysqli_connect("localhost","Username","Password","Database_Name");
 
-	$fh = fopen($path, 'a') or die('can\'t open file - a');
-	fwrite($fh, $mobs);
-	fclose($fh);
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+  echo "Connected to db";
+  
+  	foreach(preg_split("/((\r?\n)|(\r\n?))/", $mobs) as $line){
+      list($name, $id, $room, $level, $rage) =
+    split(";", $line, 5);
+    mysqli_query($con,"INSERT INTO `Mobs`(`mobName`, `MobID`, `Room`, `Level`, `Rage`) VALUES ('$name','$id','$room','$level','$rage')");
+} 
+  mysqli_close($con);
 }
 ?>
