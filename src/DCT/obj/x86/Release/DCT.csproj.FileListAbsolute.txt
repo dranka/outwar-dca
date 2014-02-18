@@ -67,7 +67,6 @@ C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.exe
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.pdb
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\bin\x86\Release\DCT.exe.manifest
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\bin\x86\Release\DCT.application
-C:\Users\Gary\Documents\Typpo_Source\src\DCT\bin\x86\Release\DCT.exe
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\bin\x86\Release\DCT.pdb
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.Properties.Resources.resources
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.UI.frmItemSettings.resources
@@ -95,3 +94,4 @@ C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.TrustInfo.xml
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.exe.manifest
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.application
 C:\Users\Gary\Documents\Typpo_Source\src\DCT\obj\x86\Release\DCT.csprojResolveAssemblyReference.cache
+C:\Users\Gary\Documents\Typpo_Source\src\DCT\bin\x86\Release\DCT.exe

@@ -93,7 +93,7 @@ namespace DCT.UI
                 ListViewItem item1 = lvMobs.FindItemWithText(MobName);
                 if (item1 == null)
                     lvMobs.Items.Add(new ListViewItem(new string[] { MobName, MobID, Room }));
-                //Pathfinding.QuestMobs.Add(MobName, "n/a", Room);
+                    //Pathfinding.QuestMobs.Add(MobName, "n/a", Room);
             }
         }
 
@@ -107,16 +107,21 @@ namespace DCT.UI
             }
             else
             {
-                ListViewItem item1 = lvDrops.FindItemWithText(ItemName);
-                if (item1 == null)
+                if (ItemName != "an Augment" && ItemName != "a Brutality Potion")
                 {
-                    item1 = lvDrops.Items.Add(new ListViewItem(new string[] { ItemName, MobName, "1" }));
-                }
-                else
-                {
-                    int a = Convert.ToInt32(item1.SubItems[2].Text);
-                    a = a + 1;
-                    item1.SubItems[2].Text = a.ToString();
+                    ListViewItem item1 = lvDrops.FindItemWithText(ItemName);
+                    if (item1 == null)
+                    {
+                        item1 = lvDrops.Items.Add(new ListViewItem(new string[] { ItemName, MobName, "0" }));
+                        Pathfinding.ItemsDB.Add(ItemName, MobName);
+                    }
+                    else
+                    {
+                        int a = Convert.ToInt32(item1.SubItems[2].Text);
+                        a = a + 1;
+                        item1.SubItems[2].Text = a.ToString();
+                        item1.BackColor = Color.Green;
+                    }
                 }
             }
         }
@@ -346,29 +351,34 @@ namespace DCT.UI
 
         }
 
-        private void dgKills_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //private void dgKills_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (IsANonHeaderButtonCell(e))
+        //    {
+        //        if (dgKills.Rows.Count == 1 )
+        //        {
+
+        //        }
+        //        else
+        //        {
+        //        dgKills.Rows.Remove(dgKills.CurrentRow);
+        //        }
+
+        //    }
+        //}
+
+        //private bool IsANonHeaderButtonCell(DataGridViewCellEventArgs cellEvent)
+        //{
+        //    if (dgKills.Columns[cellEvent.ColumnIndex] is
+        //        DataGridViewButtonColumn &&
+        //        cellEvent.RowIndex != -1)
+        //    { return true; }
+        //    else { return (false); }
+        //}
+
+        private void lvDrops_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (IsANonHeaderButtonCell(e))
-            {
-                if (dgKills.Rows.Count == 1 )
-                {
 
-                }
-                else
-                {
-                dgKills.Rows.Remove(dgKills.CurrentRow);
-                }
-
-            }
-        }
-
-        private bool IsANonHeaderButtonCell(DataGridViewCellEventArgs cellEvent)
-        {
-            if (dgKills.Columns[cellEvent.ColumnIndex] is
-                DataGridViewButtonColumn &&
-                cellEvent.RowIndex != -1)
-            { return true; }
-            else { return (false); }
         }
     }
 }

@@ -183,6 +183,11 @@ namespace DCT.Outwar.World
                 CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.QuestMobs.Count + " new quest mobs");
                 Pathfinding.QuestMobs.Submit();
             }
+            if (Pathfinding.ItemsDB.Count > 0)
+            {
+                CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.ItemsDB.Count + "new items");
+                Pathfinding.ItemsDB.Submit();
+            }
         }
 
         private static void RunCallback(IAsyncResult ar)

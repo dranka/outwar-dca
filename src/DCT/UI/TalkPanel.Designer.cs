@@ -57,18 +57,10 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgKills = new System.Windows.Forms.DataGridView();
-            this.Mob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kills = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tokill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgKills)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -146,7 +138,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(409, 268);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Items";
+            this.tabPage2.Text = "Item Database";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -206,6 +198,7 @@
             this.lvDrops.UseCompatibleStateImageBehavior = false;
             this.lvDrops.View = System.Windows.Forms.View.Details;
             this.lvDrops.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvDrops_ColumnClick);
+            this.lvDrops.SelectedIndexChanged += new System.EventHandler(this.lvDrops_SelectedIndexChanged);
             // 
             // columnHeader4
             // 
@@ -219,7 +212,7 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "# Dropped";
+            this.columnHeader6.Text = "Drops";
             this.columnHeader6.Width = 80;
             // 
             // linkLabel2
@@ -377,59 +370,12 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(417, 294);
             this.tabControl1.TabIndex = 11;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgKills);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(409, 268);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgKills
-            // 
-            this.dgKills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgKills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Mob,
-            this.Kills,
-            this.tokill,
-            this.Delete});
-            this.dgKills.Location = new System.Drawing.Point(3, 0);
-            this.dgKills.Name = "dgKills";
-            this.dgKills.Size = new System.Drawing.Size(487, 272);
-            this.dgKills.TabIndex = 0;
-            this.dgKills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgKills_CellContentClick);
-            // 
-            // Mob
-            // 
-            this.Mob.HeaderText = "Mob Name";
-            this.Mob.Name = "Mob";
-            // 
-            // Kills
-            // 
-            this.Kills.HeaderText = "Total Killed";
-            this.Kills.Name = "Kills";
-            this.Kills.ReadOnly = true;
-            // 
-            // tokill
-            // 
-            this.tokill.HeaderText = "Ammount to kill";
-            this.tokill.Name = "tokill";
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
             // 
             // TalkPanel
             // 
@@ -446,8 +392,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgKills)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,11 +427,5 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dgKills;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mob;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Kills;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tokill;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

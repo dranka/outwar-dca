@@ -42,5 +42,22 @@ while($data = mysql_fetch_row($result)){
 	fclose($fh);
 }
 
+$path = 'items';
+
+$order = "SELECT * FROM `Items` order by `ItemName`";
+//order to search data
+//declare in the order variable
+				
+$result = mysql_query($order);	
+//order executes the result is saved
+//in the variable of $result
+$fh = fopen($path, 'w') or die ('can\'t open file -a');	
+fclose($fh);		
+while($data = mysql_fetch_row($result)){
+    $fh = fopen($path, 'a') or die('can\'t open file - a');
+	fwrite($fh, "$data[0];$data[1]\n");
+	fclose($fh);
+}
+
 
 ?>

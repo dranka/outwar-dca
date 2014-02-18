@@ -47,14 +47,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCT.exe" size="317952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCT.exe" size="317440">
       <assemblyIdentity name="DCT" version="1.0.0.0" publicKeyToken="49779FE8B19BF47B" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dpo1F34YHA8bThcA/bOKF2+eLmk=</dsig:DigestValue>
+        <dsig:DigestValue>LEi/fT7Vzx+YWoRhEp8/pGR2ZtE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

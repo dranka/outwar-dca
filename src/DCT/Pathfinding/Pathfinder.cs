@@ -22,7 +22,7 @@ namespace DCT.Pathfinding
         internal static SortedList<string, int> Adventures { get; private set; }
         internal static SortedList<string, int> Quest { get; private set; }
         internal static List<MappedMob> Spawns { get; private set; }
-        internal static SortedList<string, int> QuestDB { get; private set; }
+        internal static SortedList<string, int> Items { get; private set; }
 
         internal static void BuildMap(object update)
         {
@@ -52,7 +52,7 @@ namespace DCT.Pathfinding
             Spawns = new List<MappedMob>();
             Adventures = new SortedList<string, int>();
             Quest = new SortedList<string, int>();
-            QuestDB = new SortedList<string, int>();
+            Items = new SortedList<string, int>();
 
             string map;
             List<int> nbrs;
@@ -208,28 +208,28 @@ namespace DCT.Pathfinding
             Spawns.Sort();
 
             // ------------------
-            // QuestDB
+            // ItemsDB
 
-            //for (int i = 0; i < 2 && QuestDB.Count < 1; i++)
-            //{
-            //    if (!File.Exists("questdb.dat") || update)
-            //    {
-            //        Download("questdb");
-            //    }
-            //    if ((map = ReadDecrypt("questdb")) == null)
-            //        continue;
+            for (int i = 0; i < 2 && Items.Count < 1; i++)
+            {
+                if (!File.Exists("items.dat") || update)
+                {
+                    Download("items");
+                }
+                if ((map = ReadDecrypt("items")) == null)
+                    continue;
 
-            //    foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
-            //    {
-            //        if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
-            //            continue;
+                foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
+                        continue;
 
-            //        string[] j = token.Split(';');
-            //        CoreUI.Instance.TalkPanel.LoadQuestDB(j[0], j[1], j[2], j[3], j[4]);
-            //    }
+                    string[] j = token.Split(';');
+                    CoreUI.Instance.TalkPanel.AddItem(j[0], j[1]);
+                }
 
-            //    i++;
-            //}
+                i++;
+            }
 
         }
 
