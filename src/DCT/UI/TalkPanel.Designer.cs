@@ -57,10 +57,18 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgQuest = new System.Windows.Forms.DataGridView();
+            this.Mob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Needed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Finished = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgQuest)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -149,6 +157,7 @@
             this.label4.Size = new System.Drawing.Size(9, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "|";
+            this.label4.Visible = false;
             // 
             // linkLabel6
             // 
@@ -171,6 +180,7 @@
             this.linkLabel1.TabIndex = 11;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Quest Options";
+            this.linkLabel1.Visible = false;
             // 
             // label1
             // 
@@ -198,7 +208,7 @@
             this.lvDrops.UseCompatibleStateImageBehavior = false;
             this.lvDrops.View = System.Windows.Forms.View.Details;
             this.lvDrops.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvDrops_ColumnClick);
-            this.lvDrops.SelectedIndexChanged += new System.EventHandler(this.lvDrops_SelectedIndexChanged);
+            this.lvDrops.DoubleClick += new System.EventHandler(this.lvDrops_DoubleClick);
             // 
             // columnHeader4
             // 
@@ -370,12 +380,68 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(417, 294);
             this.tabControl1.TabIndex = 11;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgQuest);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(409, 268);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Questing";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgQuest
+            // 
+            this.dgQuest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgQuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgQuest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Mob,
+            this.Done,
+            this.Needed,
+            this.Finished});
+            this.dgQuest.Location = new System.Drawing.Point(6, 6);
+            this.dgQuest.Name = "dgQuest";
+            this.dgQuest.Size = new System.Drawing.Size(397, 256);
+            this.dgQuest.TabIndex = 0;
+            // 
+            // Mob
+            // 
+            this.Mob.HeaderText = "Mob/Item";
+            this.Mob.Name = "Mob";
+            this.Mob.Width = 150;
+            // 
+            // Done
+            // 
+            this.Done.HeaderText = "Done";
+            this.Done.Name = "Done";
+            this.Done.ReadOnly = true;
+            this.Done.Width = 50;
+            // 
+            // Needed
+            // 
+            this.Needed.HeaderText = "Needed";
+            this.Needed.Name = "Needed";
+            this.Needed.Width = 50;
+            // 
+            // Finished
+            // 
+            this.Finished.HeaderText = "";
+            this.Finished.Name = "Finished";
+            this.Finished.ReadOnly = true;
+            this.Finished.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Finished.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Finished.Width = 50;
             // 
             // TalkPanel
             // 
@@ -392,6 +458,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgQuest)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -427,5 +495,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dgQuest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Done;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Needed;
+        private System.Windows.Forms.DataGridViewImageColumn Finished;
     }
 }

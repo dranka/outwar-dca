@@ -5,6 +5,7 @@ using DCT.Settings;
 using DCT.Parsing;
 using DCT.UI;
 using DCT.Util;
+using System.Threading;
 
 namespace DCT.Outwar.World
 {
@@ -78,26 +79,42 @@ namespace DCT.Outwar.World
 
             CoreUI.Instance.ToggleAttack(true);
 
-            MethodInvoker d = Run;
-            d.BeginInvoke(RunCallback, d);
+            if (mType == AttackingType.CurrentArea)
+            {
+                lock (mAccounts)
+                {
+                    foreach (Account m in mAccounts)
+                    {
+                        ThreadPool.QueueUserWorkItem(o => Run(m));
+                        Thread.Sleep(500);
+                    }
+                }
+            }
+            else
+            {
+                MethodInvoker d = Run1;
+                d.BeginInvoke(RunCallback, d);
+            }     
         }
 
         /// <summary>
         /// Attacks with accounts
         /// </summary>
-        private static void Run()
+        private static void Run(Account a)
         {
             // save settings
             //RegistryUtil.Save();
+            
             IniWriter.Save();
             ConfigSerializer.WriteFile("config.xml", CoreUI.Instance.Settings);
 
             CoreUI.Instance.ToggleNotifyIcon(true);
 
-            lock (mAccounts)
-            {
-                foreach (Account a in mAccounts)
-                {
+            //lock (mAccounts)
+            //{
+               // foreach (Account a in mAccounts)
+               // {
+                    
                     CoreUI.Instance.LogPanel.Log("Refreshing " + a.Name + "'s position...");
                     if (!a.Mover.RefreshRoom())
                     {
@@ -125,15 +142,117 @@ namespace DCT.Outwar.World
                             {
                                 // go to next account
                                 CoreUI.Instance.LogPanel.Log(string.Format("Fury not cast on {0}, none found.", a.Name));
-                                continue;
+                                //continue;
                             }
                         }
                         else
                         {
                             // go to next account
                             CoreUI.Instance.LogPanel.Log(string.Format("Not attacking on {0}, reached rage limit", a.Name));
-                            continue;
+                            //continue;
                         }
+                    }
+
+                    a.Mover.ReturnToStartHandler.SetOriginal();
+
+                    CoreUI.Instance.AccountsPanel.Engine.SetMain(a);
+                    switch (mType)
+                    {
+                        case AttackingType.CurrentArea:
+                            CoreUI.Instance.DoAttackArea();
+                            break;
+                        case AttackingType.MultiArea:
+                            CoreUI.Instance.DoAttackMultiAreas(mAreas);
+                            break;
+                        case AttackingType.Mobs:
+                            CoreUI.Instance.DoAttackMobs(mMobs);
+                            break;
+                        case AttackingType.Rooms:
+                            CoreUI.Instance.DoAttackRooms(mRooms);
+                            break;
+                    }
+
+
+                    // update account state
+                    a.RefreshState();
+
+                    // Finished
+                    CoreUI.Instance.LogPanel.Log(a.Name + " attack coverage complete");
+
+                    if (!Globals.AttackMode)
+                    {
+                        //break;
+                    }
+                //}
+           // }
+
+            CoreUI.Instance.ToggleNotifyIcon(false);
+
+            // submit any newfound mobs to pathfinding database
+            if (Pathfinding.MobCollector.Count > 0)
+            {
+                CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.MobCollector.Count + " new mobs");
+                //Pathfinding.MobCollector.UpdateMobs();
+                Pathfinding.MobCollector.Submit();
+            }
+
+            if (Pathfinding.QuestMobs.Count > 0)
+            {
+                CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.QuestMobs.Count + " new quest mobs");
+                Pathfinding.QuestMobs.Submit();
+            }
+            if (Pathfinding.ItemsDB.Count > 0)
+            {
+                CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.ItemsDB.Count + "new items");
+                Pathfinding.ItemsDB.Submit();
+            }
+
+            CoreUI.Instance.ToggleAttack(false);
+            Globals.AttackOn = false;
+
+            if (CoreUI.Instance.Settings.ReturnToStart)
+            {
+                foreach (Account m in mAccounts)
+                {
+                    m.Mover.ReturnToStartHandler.InvokeReturn();
+                }
+            }
+
+            if (CoreUI.Instance.Settings.UseCountdownTimer || CoreUI.Instance.Settings.UseHourTimer)
+            {
+                CoreUI.Instance.Countdown(mType);
+            }
+
+            mAreas.Clear();
+            mMobs.Clear();
+        }
+
+        private static void Run1()
+        {
+            // save settings
+            RegistryUtil.Save();
+            IniWriter.Save();
+            ConfigSerializer.WriteFile("config.xml", CoreUI.Instance.Settings);
+
+            CoreUI.Instance.ToggleNotifyIcon(true);
+
+            lock (mAccounts)
+            {
+                foreach (Account a in mAccounts)
+                {
+                    CoreUI.Instance.LogPanel.Log("Refreshing " + a.Name + "'s position...");
+                    if (!a.Mover.RefreshRoom())
+                    {
+                        CoreUI.Instance.ToggleNotifyIcon(false);
+                        return;
+                    }
+
+                    // no point in moving if we don't have rage
+                    if (a.Mover.Account.Rage > -1 && a.Mover.Account.Rage < Math.Max(1, CoreUI.Instance.Settings.StopBelowRage))
+                    {
+                        // go to next account
+                        CoreUI.Instance.LogPanel.Log(string.Format("Not attacking on {0}, reached rage limit", a.Name));
+                        continue;
                     }
 
                     a.Mover.ReturnToStartHandler.SetOriginal();
@@ -172,9 +291,11 @@ namespace DCT.Outwar.World
             CoreUI.Instance.ToggleNotifyIcon(false);
 
             // submit any newfound mobs to pathfinding database
+            // submit any newfound mobs to pathfinding database
             if (Pathfinding.MobCollector.Count > 0)
             {
                 CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.MobCollector.Count + " new mobs");
+                //Pathfinding.MobCollector.UpdateMobs();
                 Pathfinding.MobCollector.Submit();
             }
 

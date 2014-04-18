@@ -117,6 +117,7 @@ namespace DCT.Outwar.World
 
                 // it's new
                 Pathfinding.MobCollector.Add(this);
+
             }
         }
 
@@ -337,7 +338,7 @@ namespace DCT.Outwar.World
                             FuryID = ID.Parse("itempopup(event,'", "')");
                             chkFury = mRoom.Mover.Account.Socket.Get("/home.php?itemaction=" + FuryID);
                             CoreUI.Instance.Trainpanel.IncreaseFuryCounter();
-                                CoreUI.Instance.LogPanel.Log(string.Format("Fury casted on {0}", mRoom.Name));
+                            CoreUI.Instance.LogPanel.Log(string.Format("Fury casted on {0}", mRoom.Name));
                         }
                         else
                         {
@@ -572,20 +573,20 @@ namespace DCT.Outwar.World
                 {
                     //Check to see if required kills has been met
                     //If yes then stop attacking
-                if (CoreUI.Instance.Settings.StopQuestKills == true)
-                {
-                    string[] Kills = killProgress.Split('/');
-                    char[] MyChar = { ' ', 'k', 'i', 'l', 'l', 'e', 'd'};
-                    Kills[1] = Kills[1].TrimEnd(MyChar);
-                    int KillsDone = Int32.Parse(Kills[0]);
-                    int KillsNeeded = Int32.Parse(Kills[1]);
+                //if (CoreUI.Instance.Settings.StopQuestKills == true)
+                //{
+                //    string[] Kills = killProgress.Split('/');
+                //    char[] MyChar = { ' ', 'k', 'i', 'l', 'l', 'e', 'd'};
+                //    Kills[1] = Kills[1].TrimEnd(MyChar);
+                //    int KillsDone = Int32.Parse(Kills[0]);
+                //    int KillsNeeded = Int32.Parse(Kills[1]);
 
-                    if (KillsDone == KillsNeeded)
-                    {
-                        CoreUI.Instance.ToggleAttack(false);
-                        CoreUI.Instance.LogPanel.Log("Reached required kills");
-                    }
-                }
+                //    if (KillsDone == KillsNeeded)
+                //    {
+                //        CoreUI.Instance.ToggleAttack(false);
+                //        CoreUI.Instance.LogPanel.Log("Reached required kills");
+                //    }
+                //}
                 CoreUI.Instance.LogPanel.LogAttack(attackLogString);
                 }
 

@@ -42,12 +42,30 @@ namespace DCT.Outwar.World
         {
             // create url
             string url = string.Format("ajax_changeroomb.php?room={0}&lastroom={1}", Id, Mover.Location.Id);
+
             if (IsDoor)
             {
                 url += "&door=1";
             }
             string src = Mover.Socket.Get(url);
-
+            //if (Globals.Spidering)
+            //{
+            //    // normal rooms
+            //    int n, s, e, w;
+            //    n = s = e = w = -1;
+            //    int.TryParse(Parser.Parse(src, "\"north\":\"", "\""), out n);
+            //    int.TryParse(Parser.Parse(src, "\"south\":\"", "\""), out s);
+            //    int.TryParse(Parser.Parse(src, "\"east\":\"", "\""), out e);
+            //    int.TryParse(Parser.Parse(src, "\"west\":\"", "\""), out w);
+            //    List<int> nbrs = new List<int>();
+            //    nbrs.Add(n);
+            //    nbrs.Add(e);
+            //    nbrs.Add(s);
+            //    nbrs.Add(w);
+            //    Pathfinding.MappedRoom nr = new Pathfinding.MappedRoom(Mover.Location.Id, Mover.Location.Name, nbrs);
+                
+            //    Pathfinding.sRooms.Add(nr);
+            //}
             if (src.Contains("Could not connect, please try again."))
             {
                 src = Mover.Socket.Get(url);
@@ -213,6 +231,7 @@ namespace DCT.Outwar.World
             Links.Add(s);
             Links.Add(e);
             Links.Add(w);
+
 
             // doors
             if (src.Contains("door=1"))

@@ -110,7 +110,7 @@ namespace DCT.UI
             this.cmbPotionMobs.Name = "cmbPotionMobs";
             this.cmbPotionMobs.Size = new System.Drawing.Size(115, 21);
             this.cmbPotionMobs.TabIndex = 12;
-            this.cmbPotionMobs.Text = "Choose a potion...";
+            this.cmbPotionMobs.Text = "Choose a Item...";
             // 
             // lnkMobLoad
             // 
@@ -153,6 +153,7 @@ namespace DCT.UI
             this.lvMobs.View = System.Windows.Forms.View.Details;
             this.lvMobs.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvMobs_ColumnClick);
             this.lvMobs.SelectedIndexChanged += new System.EventHandler(this.lvMobs_SelectedIndexChanged);
+            this.lvMobs.DoubleClick += new System.EventHandler(this.lvMobs_DoubleClick);
             // 
             // columnHeader3
             // 

@@ -4,6 +4,7 @@ using System.Text;
 using System.Web;
 using DCT.Outwar.World;
 using DCT.Protocols.Http;
+using DCT.UI;
 
 namespace DCT.Pathfinding
 {
@@ -35,6 +36,11 @@ namespace DCT.Pathfinding
             {
                 mMobs.Add(mm);
             }
+        }
+
+        internal static void UpdateMobs()
+        {
+            CoreUI.Instance.MobsPanel.AddMobs(mMobs);
         }
 
         internal static void Submit()

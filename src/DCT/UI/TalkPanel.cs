@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DCT.Outwar;
 using DCT.Outwar.World;
 using DCT.Pathfinding;
+using DCT.Parsing;
 using DCT.Util;
 using System.Threading;
 
@@ -15,7 +16,7 @@ namespace DCT.UI
 {
     public partial class TalkPanel : UserControl
     {
-        private BindingSource bs = new BindingSource();   
+        private BindingSource bs = new BindingSource();
 
         internal bool TalkEnabled
         {
@@ -66,6 +67,7 @@ namespace DCT.UI
         internal void BuildView()
         {
             lvMobs.Items.Clear();
+            lvDrops.Items.Clear();
             //SortedList<string, int> l = Pathfinder.Adventures;
             //for (int i = 0; i < l.Count; i++)
             //{
@@ -112,7 +114,7 @@ namespace DCT.UI
                     ListViewItem item1 = lvDrops.FindItemWithText(ItemName);
                     if (item1 == null)
                     {
-                        item1 = lvDrops.Items.Add(new ListViewItem(new string[] { ItemName, MobName, "0" }));
+                        item1 = lvDrops.Items.Add(new ListViewItem(new string[] { ItemName, MobName, "1" }));
                         Pathfinding.ItemsDB.Add(ItemName, MobName);
                     }
                     else
@@ -121,6 +123,27 @@ namespace DCT.UI
                         a = a + 1;
                         item1.SubItems[2].Text = a.ToString();
                         item1.BackColor = Color.Green;
+                    }
+                }
+            }
+        }
+
+        internal delegate void LoadItems(string ItemName, string MobName);
+        internal void LoadItem(string ItemName, string MobName)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new LoadItems(LoadItem), ItemName, MobName);
+                return;
+            }
+            else
+            {
+                if (ItemName != "an Augment" && ItemName != "a Brutality Potion")
+                {
+                    ListViewItem item1 = lvDrops.FindItemWithText(ItemName);
+                    if (item1 == null)
+                    {
+                        item1 = lvDrops.Items.Add(new ListViewItem(new string[] { ItemName, MobName, "0" }));
                     }
                 }
             }
@@ -195,6 +218,7 @@ namespace DCT.UI
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Pathfinder.Items.Clear();
             lvDrops.Items.Clear();
         }
 
@@ -376,9 +400,32 @@ namespace DCT.UI
         //    else { return (false); }
         //}
 
-        private void lvDrops_SelectedIndexChanged(object sender, EventArgs e)
+        internal void AddToQuester(string n)
         {
+            dgQuest.Rows.Add(n, "0", "", Properties.Resources.RedX);
+        }
 
+        private void lvDrops_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvDrops.SelectedItems.Count > 0)
+            {
+                string n = lvDrops.SelectedItems[0].Text;
+                AddToQuester(n);
+
+            }
+        }
+
+        internal void RefreshQuest(object t)
+        {
+            int i = Convert.ToInt32(t);
+            string src = CoreUI.Instance.AccountsPanel.Engine[i].Socket.Get("world_questHelper.php");
+            Parser p = new Parser(src);
+            foreach (string f in p.MultiParse("show_quest.php", "table><BR><div align="))
+            {
+                Parser b = new Parser(f);
+
+            }
+            
         }
     }
 }

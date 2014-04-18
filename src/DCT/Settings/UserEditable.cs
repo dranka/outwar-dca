@@ -57,8 +57,6 @@ namespace DCT.Settings
         public bool IgnoreSpawnRage { get; set; }
         [XmlElement("MultiThread")]
         public bool MultiThread { get; set; }
-        [XmlElement("QuestKills")]
-        public bool StopQuestKills { get; set; }
         [XmlElement("LastUsername")]
         public string LastUsername { get; set; }
         [XmlElement("LastPassword")]
@@ -121,7 +119,6 @@ namespace DCT.Settings
             StopAfterVal = 1;
             StopAfterMode = StopAfterType.Runs;
 
-            StopQuestKills = false;
             MultiThread = true;
             ChatTimeStamps = true;
             UseFury = false;

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 using DCT.Pathfinding;
 using DCT.Util;
 
@@ -40,7 +41,14 @@ namespace DCT.UI
         internal MobsPanel(CoreUI ui)
         {
             mUI = ui;
-            InitializeComponent();
+            Action<object> action = (object obj) =>
+            {
+                InitializeComponent();
+            };
+
+            Task t1 = new Task(action, "alpha");
+            t1.Start();
+            t1.Wait();
         }
 
         internal void BuildView()
@@ -60,6 +68,30 @@ namespace DCT.UI
                     lvMobs.Items.Add(tmp);
                 }
             }
+        }
+
+        internal void AddMobs(List<MappedMob> mm)
+        {
+            lvMobs.Items.Clear();
+            foreach (MappedMob mb in mm)
+            {
+                if (mb != null)
+                {
+                    ListViewItem tmp = new ListViewItem(
+                            new[]
+                                {
+                                    mb.Name, mb.Id.ToString(), mb.Room.ToString(),
+                                    mb.Level.ToString(), mb.Rage.ToString()
+                                });
+                    tmp.Name = mb.Name;
+                    lvMobs.Items.Add(tmp);
+                }
+            }
+        }
+
+        internal void ClearMobs()
+        {
+            lvMobs.Items.Clear();
         }
 
         private void btnMobRage_Click(object sender, EventArgs e)
@@ -168,34 +200,34 @@ namespace DCT.UI
             List<string> check = new List<string>();
             switch (cmbPotionMobs.Text.ToLower())
             {
-                case "kix":
+                case "kix potion":
                     check.Add("Kix Oak Tree");
                     check.Add("Kix Spider");
                     check.Add("Mountain Weeds");
                     break;
-                case "kinetic":
+                case "kinetic potion":
                     check.Add("Deadly Ripscale");
                     check.Add("Poison Drake");
                     check.Add("Enraged Centaur");
                     check.Add("Earth Troll");
                     check.Add("Evil Sherpa");
                     break;
-                case "fire":
+                case "fire potion":
                     check.Add("Haunter");
                     check.Add("Evil Ranger Grunt");
                     check.Add("Lost Demon");
                     break;
-                case "holy":
+                case "holy potion":
                     check.Add("Fallen Angel");
                     check.Add("Apparitional Veteran");
                     check.Add("Evil Ranger Grunt");
                     break;
-                case "shadow":
+                case "shadow potion":
                     check.Add("Caustic Corpse");
                     check.Add("Infuriated Savage");
                     check.Add("Evil Ranger Grunt");
                     break;
-                case "arcane":
+                case "arcane potion":
                     check.Add("Spectral Warrior");
                     check.Add("Ancient Deserter");
                     check.Add("Evil Ranger Grunt");
@@ -249,6 +281,15 @@ namespace DCT.UI
                 mUI.LogPanel.Log(string.Format("Moving to {0} in room {1}", item.SubItems[0].Text, item.SubItems[2].Text));
             }
             mUI.InvokePathfind(int.Parse(item.SubItems[2].Text));
+        }
+
+        private void lvMobs_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvMobs.SelectedItems.Count > 0)
+            {
+                string n = lvMobs.SelectedItems[0].Text;
+                CoreUI.Instance.TalkPanel.AddToQuester(n);
+            }
         }
 
         private void lvMobs_SelectedIndexChanged(object sender, EventArgs e)

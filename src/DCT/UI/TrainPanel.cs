@@ -87,9 +87,10 @@ namespace DCT.UI
         }
 
         private void CastLingBuff(object t)
-        {
+        {            
             int x = int.Parse(t.ToString());
-          CoreUI.Instance.AccountsPanel.Engine[x].Mover.Socket.Get("underlings.php?claim=1");
+            string scr = CoreUI.Instance.AccountsPanel.Engine[x].Mover.Socket.Get("underlings.php?claim=1&rg_sess_id=" + CoreUI.Instance.AccountsPanel.Engine.RgSessId);
+            Thread.Sleep(1);
         }
 
         private void btnTrain_Click_1(object sender, EventArgs e)

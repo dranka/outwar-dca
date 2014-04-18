@@ -271,6 +271,10 @@ namespace DCT.UI
             int[] indices = new int[AccountsPanel.CheckedIndices.Count];
             for (int i = 0; i < indices.Length; i++)
             {
+                if (room >= 14507 & room <= 17555 | room >= 9954 & room <= 11844)
+                {
+                    AccountsPanel.Engine.Accounts[i].Socket.Get("world.php?room=10981");
+                }
                 indices[i] = AccountsPanel.CheckedIndices[i];
             }
 

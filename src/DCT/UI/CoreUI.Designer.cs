@@ -97,6 +97,9 @@ namespace DCT.UI
             this.lblRage = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblGold = new System.Windows.Forms.ToolStripLabel();
+            this.tslRoom = new System.Windows.Forms.ToolStripLabel();
+            this.lblRoom = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.splitLeftRight = new System.Windows.Forms.SplitContainer();
             this.splitTopBottom = new System.Windows.Forms.SplitContainer();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -109,14 +112,14 @@ namespace DCT.UI
             this.tabTalk = new System.Windows.Forms.TabPage();
             this.tabTrainer = new System.Windows.Forms.TabPage();
             this.tabDrops = new System.Windows.Forms.TabPage();
-            this.tslRoom = new System.Windows.Forms.ToolStripLabel();
-            this.lblRoom = new System.Windows.Forms.ToolStripLabel();
             this.ss.SuspendLayout();
             this.mnuMain.SuspendLayout();
             this.mNotifyMenu.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitLeftRight)).BeginInit();
             this.splitLeftRight.Panel2.SuspendLayout();
             this.splitLeftRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitTopBottom)).BeginInit();
             this.splitTopBottom.Panel2.SuspendLayout();
             this.splitTopBottom.SuspendLayout();
             this.tabs.SuspendLayout();
@@ -421,7 +424,6 @@ namespace DCT.UI
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
             this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.debugToolStripMenuItem.Text = "Debug";
-            this.debugToolStripMenuItem.Visible = false;
             // 
             // spiderToolStripMenuItem
             // 
@@ -547,7 +549,8 @@ namespace DCT.UI
             this.toolStripLabel2,
             this.lblGold,
             this.tslRoom,
-            this.lblRoom});
+            this.lblRoom,
+            this.toolStripButton1});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.ShowItemToolTips = false;
@@ -557,7 +560,7 @@ namespace DCT.UI
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Image = global::DCT.Properties.Resources.Flag_green2;
+            this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
             this.btnStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(56, 22);
@@ -567,10 +570,9 @@ namespace DCT.UI
             // btnStop
             // 
             this.btnStop.Enabled = false;
-            this.btnStop.Image = global::DCT.Properties.Resources.Flag_red;
             this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(51, 22);
+            this.btnStop.Size = new System.Drawing.Size(35, 22);
             this.btnStop.Text = "Stop";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
@@ -661,6 +663,30 @@ namespace DCT.UI
             this.lblGold.Name = "lblGold";
             this.lblGold.Size = new System.Drawing.Size(14, 22);
             this.lblGold.Text = "...";
+            // 
+            // tslRoom
+            // 
+            this.tslRoom.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold);
+            this.tslRoom.Name = "tslRoom";
+            this.tslRoom.Size = new System.Drawing.Size(36, 22);
+            this.tslRoom.Text = "Room:";
+            // 
+            // lblRoom
+            // 
+            this.lblRoom.Font = new System.Drawing.Font("Tahoma", 6.75F);
+            this.lblRoom.Name = "lblRoom";
+            this.lblRoom.Size = new System.Drawing.Size(14, 22);
+            this.lblRoom.Text = "...";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold);
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButton1.Text = "Refresh Room";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // splitLeftRight
             // 
@@ -791,20 +817,6 @@ namespace DCT.UI
             this.tabDrops.Text = "Chat";
             this.tabDrops.UseVisualStyleBackColor = true;
             // 
-            // tslRoom
-            // 
-            this.tslRoom.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold);
-            this.tslRoom.Name = "tslRoom";
-            this.tslRoom.Size = new System.Drawing.Size(36, 22);
-            this.tslRoom.Text = "Room:";
-            // 
-            // lblRoom
-            // 
-            this.lblRoom.Font = new System.Drawing.Font("Tahoma", 6.75F);
-            this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(14, 22);
-            this.lblRoom.Text = "...";
-            // 
             // CoreUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -831,8 +843,10 @@ namespace DCT.UI
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.splitLeftRight.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitLeftRight)).EndInit();
             this.splitLeftRight.ResumeLayout(false);
             this.splitTopBottom.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitTopBottom)).EndInit();
             this.splitTopBottom.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -923,5 +937,6 @@ namespace DCT.UI
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
         private System.Windows.Forms.ToolStripLabel tslRoom;
         private System.Windows.Forms.ToolStripLabel lblRoom;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

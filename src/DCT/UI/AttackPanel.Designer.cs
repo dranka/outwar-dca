@@ -30,7 +30,6 @@ namespace DCT.UI
         {
             this.grpSettings = new System.Windows.Forms.GroupBox();
             this.chkMultiThread = new System.Windows.Forms.CheckBox();
-            this.chkQuestKills = new System.Windows.Forms.CheckBox();
             this.pnlMainPanel = new System.Windows.Forms.Panel();
             this.chkReturnToStart = new System.Windows.Forms.CheckBox();
             this.numTimeout = new System.Windows.Forms.NumericUpDown();
@@ -56,7 +55,6 @@ namespace DCT.UI
             // grpSettings
             // 
             this.grpSettings.Controls.Add(this.chkMultiThread);
-            this.grpSettings.Controls.Add(this.chkQuestKills);
             this.grpSettings.Controls.Add(this.pnlMainPanel);
             this.grpSettings.Controls.Add(this.chkReturnToStart);
             this.grpSettings.Controls.Add(this.numTimeout);
@@ -82,24 +80,13 @@ namespace DCT.UI
             // chkMultiThread
             // 
             this.chkMultiThread.AutoSize = true;
-            this.chkMultiThread.Location = new System.Drawing.Point(3, 200);
+            this.chkMultiThread.Location = new System.Drawing.Point(3, 177);
             this.chkMultiThread.Name = "chkMultiThread";
             this.chkMultiThread.Size = new System.Drawing.Size(121, 17);
             this.chkMultiThread.TabIndex = 40;
             this.chkMultiThread.Text = "MultiThread Attacks";
             this.chkMultiThread.UseVisualStyleBackColor = true;
             this.chkMultiThread.CheckedChanged += new System.EventHandler(this.chkMultiThread_CheckedChanged);
-            // 
-            // chkQuestKills
-            // 
-            this.chkQuestKills.AutoSize = true;
-            this.chkQuestKills.Location = new System.Drawing.Point(3, 177);
-            this.chkQuestKills.Name = "chkQuestKills";
-            this.chkQuestKills.Size = new System.Drawing.Size(165, 17);
-            this.chkQuestKills.TabIndex = 7;
-            this.chkQuestKills.Text = "Stop when done re quest kills";
-            this.chkQuestKills.UseVisualStyleBackColor = true;
-            this.chkQuestKills.CheckedChanged += new System.EventHandler(this.chkQuestKills_CheckedChanged);
             // 
             // pnlMainPanel
             // 
@@ -323,7 +310,6 @@ namespace DCT.UI
         private System.Windows.Forms.CheckBox chkAutoTeleport;
         private System.Windows.Forms.CheckBox chkReturnToStart;
         private System.Windows.Forms.Panel pnlMainPanel;
-        private System.Windows.Forms.CheckBox chkQuestKills;
         private System.Windows.Forms.CheckBox chkMultiThread;
 
     }

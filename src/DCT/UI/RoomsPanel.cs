@@ -196,6 +196,11 @@ namespace DCT.UI
             MessageBox.Show("Selected " + i + " rooms.", "Select Rooms", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        internal void ClearRooms()
+        {
+            lvPathfind.Items.Clear();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             foreach (int index in CoreUI.Instance.AccountsPanel.CheckedIndices)

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DCT.Outwar;
 using DCT.Outwar.World;
@@ -213,11 +214,10 @@ namespace DCT.UI
 
         internal void BuildViews()
         {
-            RoomsPanel.BuildView();
-            MobsPanel.BuildView();
-            RaidsPanel.BuildView();
-            SpawnsPanel.BuildView();
-            
+                RoomsPanel.BuildView();
+                MobsPanel.BuildView();
+                RaidsPanel.BuildView();
+                SpawnsPanel.BuildView();
         }
 
         internal void UpdateDisplay()
@@ -235,7 +235,7 @@ namespace DCT.UI
                 lblExp.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Exp);
                 lblRage.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Rage);
                 lblGold.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Gold);
-                lblRoom.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Mover.Location.Id.ToString());
+                lblRoom.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Mover.Location.Id);
 
                 Account a = AccountsPanel.Engine.MainAccount;
                 int i = AccountsPanel.Engine.Accounts.IndexOf(a);
@@ -394,7 +394,6 @@ namespace DCT.UI
             mAttackPanel.StopBelowRage = Settings.StopBelowRage;
             mAttackPanel.RageLimit = Settings.RageLimit;
             mAttackPanel.ReturnToStart = Settings.ReturnToStart;
-            mAttackPanel.QuestKillsStop = Settings.StopQuestKills;
             mAttackPanel.MultiThread = Settings.MultiThread;
 
 
@@ -732,7 +731,9 @@ namespace DCT.UI
         private void clearDatabasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Pathfinder.Rooms.Clear();
+            MobsPanel.ClearMobs();
             Pathfinder.Mobs.Clear();
+            RoomsPanel.ClearRooms();
         }
 
         private void writeSerializeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1097,6 +1098,17 @@ namespace DCT.UI
         private void cToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChatPanel.ClearChat(true);
+        }
+
+        private void RefreshRoom()
+        {
+            AccountsPanel.Engine.MainAccount.Mover.RefreshRoom();
+            lblRoom.Text = string.Format("{0:n0}", AccountsPanel.Engine.MainAccount.Mover.Location.Id);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            RefreshRoom();
         }
     }
 }

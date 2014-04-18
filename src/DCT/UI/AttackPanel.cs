@@ -36,12 +36,6 @@ namespace DCT.UI
             set { chkReturnToStart.Checked = value; }
         }
 
-        internal bool QuestKillsStop
-        {
-            get { return chkQuestKills.Checked; }
-            set { chkQuestKills.Checked = value; }
-        }
-
         internal bool MultiThread
         {
             get { return chkMultiThread.Checked; }
@@ -107,11 +101,6 @@ namespace DCT.UI
         {
 
             mUI.Settings.ReturnToStart = ReturnToStart;
-        }
-
-        private void chkQuestKills_CheckedChanged(object sender, EventArgs e)
-        {
-            mUI.Settings.StopQuestKills = QuestKillsStop;
         }
 
         private void chkMultiThread_CheckedChanged(object sender, EventArgs e)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-16"?>
+<UserEditable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LastMapUpdate>2014-04-07T00:31:47.2887273Z</LastMapUpdate>
+  <MobFilters>
+    <Filter>penis</Filter>
+  </MobFilters>
+  <NotifyVisible>true</NotifyVisible>
+  <ClearLogs>true</ClearLogs>
+  <AutoTeleport>true</AutoTeleport>
+  <AlertQuests>false</AlertQuests>
+  <AutoTrain>false</AutoTrain>
+  <AutoQuest>false</AutoQuest>
+  <FilterMobs>false</FilterMobs>
+  <UseCountdownTimer>false</UseCountdownTimer>
+  <UseHourTimer>false</UseHourTimer>
+  <ChatTimeStamps>true</ChatTimeStamps>
+  <UseFury>true</UseFury>
+  <ReturnToStart>false</ReturnToStart>
+  <AttackMode>CurrentArea</AttackMode>
+  <RageLimit>75</RageLimit>
+  <StopAtRage>50</StopAtRage>
+  <CycleInterval>5</CycleInterval>
+  <LvlLimitMin>0</LvlLimitMin>
+  <LvlLimit>90</LvlLimit>
+  <Timeout>15000</Timeout>
+  <AttackSpawns>false</AttackSpawns>
+  <IgnoreSpawnRage>true</IgnoreSpawnRage>
+  <MultiThread>false</MultiThread>
+  <LastUsername>mastaquiv</LastUsername>
+  <LastPassword>15playa09</LastPassword>
+  <LoginThrough>1</LoginThrough>
+  <StopAfter>false</StopAfter>
+  <StopAfterVal>1</StopAfterVal>
+  <StopAfterMode>Runs</StopAfterMode>
+</UserEditable>

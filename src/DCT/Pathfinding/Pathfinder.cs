@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DCT.Protocols.Http;
 using DCT.Security;
@@ -45,25 +46,50 @@ namespace DCT.Pathfinding
             }
         }
 
-        private static void DoBuildMap(bool update)
+        private static void BuildMobs()
         {
-            Rooms = new List<MappedRoom>();
-            Mobs = new List<MappedMob>();
-            Spawns = new List<MappedMob>();
-            Adventures = new SortedList<string, int>();
-            Quest = new SortedList<string, int>();
-            Items = new SortedList<string, int>();
+            MappedMob mm;
+            string map;
+            string[] parts;
+            for (int i = 0; i < 2 && Mobs.Count < 1; i++)
+            {
+                if (!File.Exists("mobs.dat"))
+                {
+                    Download("mobs");
+                }
+                if ((map = ReadDecrypt("mobs")) == null)
+                    continue;
+                foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
+                        continue;
+                    parts = token.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length != 5)
+                    {
+                        // not good input
+                        continue;
+                    }
+                    mm = new MappedMob(parts[0], long.Parse(parts[1]), int.Parse(parts[2]), long.Parse(parts[3]), long.Parse(parts[4]));
+                    Mobs.Add(mm);
+                }
+                i++;
+            }
+            Mobs.Sort();
+        }
 
+        private static void BuildRooms()
+        {
             string map;
             List<int> nbrs;
             string name;
             int id;
             string[] tmp;
 
+
             //*
             for (int i = 0; i < 2 && Rooms.Count < 1; i++)
             {
-                if (!File.Exists("rooms.dat") || update)
+                if (!File.Exists("rooms.dat"))
                 {
                     Download("rooms");
                 }
@@ -93,36 +119,107 @@ namespace DCT.Pathfinding
             }
             Rooms.Sort();
             LinkRooms();
+        }
+
+        private static void DoBuildMap(bool update)
+        {
+            Rooms = new List<MappedRoom>();
+            Mobs = new List<MappedMob>();
+            Spawns = new List<MappedMob>();
+            Adventures = new SortedList<string, int>();
+            Quest = new SortedList<string, int>();
+            Items = new SortedList<string, int>();
+
+            string map;
+            List<int> nbrs;
+            string name;
+            int id;
+            string[] tmp;
+
+
+            //*
+            //for (int i = 0; i < 2 && Rooms.Count < 1; i++)
+            //{
+            //    if (!File.Exists("rooms.dat") || update)
+            //    {
+            //        Download("rooms");
+            //    }
+            //    if ((map = ReadDecrypt("rooms")) == null)
+            //        continue;
+
+            //    foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+            //    {
+            //        if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
+            //            continue;
+
+            //        tmp = token.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            //        if (!int.TryParse(tmp[0], out id))
+            //        {
+            //            continue;
+            //        }
+            //        name = tmp[tmp.Length - 1];
+            //        nbrs = new List<int>();
+            //        for (int j = 1; j < tmp.Length - 1; j++)
+            //        {
+            //            nbrs.Add(int.Parse(tmp[j]));
+            //        }
+            //        if (nbrs.Count < 1)
+            //            continue;
+            //        Rooms.Add(new MappedRoom(id, name, nbrs));
+            //    }
+            //}
+            //Rooms.Sort();
+            //LinkRooms();
             //*/
 
             // ------------------
 
+            Action<object> DownloadMobs = (object obj) =>
+            {
+                BuildMobs();
+            };
+
+            Action<object> DownloadRooms = (object obj) =>
+            {
+                BuildRooms();
+            };
+
+
+            Task t1 = new Task(DownloadMobs, "alpha");
+            Task t2 = new Task(DownloadRooms, "beta");
+            t2.RunSynchronously();
+            t1.Start();
+            t1.Wait();
+            t2.Wait();
+            //Thread b = new Thread(new ThreadStart(BuildMobs));
+            //b.IsBackground = true;
+            //b.Start();
             MappedMob mm;
             string[] parts;
-            for (int i = 0; i < 2 && Mobs.Count < 1; i++)
-            {
-                if (!File.Exists("mobs.dat") || update)
-                {
-                    Download("mobs");
-                }
-                if ((map = ReadDecrypt("mobs")) == null)
-                    continue;
-                foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
-                        continue;
-                    parts = token.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                    if (parts.Length != 5)
-                    {
-                        // not good input
-                        continue;
-                    }
-                    mm = new MappedMob(parts[0], long.Parse(parts[1]), int.Parse(parts[2]), long.Parse(parts[3]), long.Parse(parts[4]));
-                    Mobs.Add(mm);
-                }
-                i++;
-            }
-            Mobs.Sort();
+            //for (int i = 0; i < 2 && Mobs.Count < 1; i++)
+            //{
+            //    if (!File.Exists("mobs.dat") || update)
+            //    {
+            //        Download("mobs");
+            //    }
+            //    if ((map = ReadDecrypt("mobs")) == null)
+            //        continue;
+            //    foreach (string token in map.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+            //    {
+            //        if (string.IsNullOrEmpty(token.Trim()) || token.StartsWith("#"))
+            //            continue;
+            //        parts = token.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            //        if (parts.Length != 5)
+            //        {
+            //            // not good input
+            //            continue;
+            //        }
+            //        mm = new MappedMob(parts[0], long.Parse(parts[1]), int.Parse(parts[2]), long.Parse(parts[3]), long.Parse(parts[4]));
+            //        Mobs.Add(mm);
+            //    }
+            //    i++;
+            //}
+            //Mobs.Sort();
 
             // -----------------
 
@@ -225,12 +322,12 @@ namespace DCT.Pathfinding
                         continue;
 
                     string[] j = token.Split(';');
-                    CoreUI.Instance.TalkPanel.AddItem(j[0], j[1]);
+                    CoreUI.Instance.TalkPanel.LoadItem(j[0], j[1]);
                 }
 
                 i++;
             }
-
+            Thread.Sleep(20000);
         }
 
 
