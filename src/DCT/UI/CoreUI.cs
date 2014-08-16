@@ -734,6 +734,8 @@ namespace DCT.UI
             MobsPanel.ClearMobs();
             Pathfinder.Mobs.Clear();
             RoomsPanel.ClearRooms();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         private void writeSerializeToolStripMenuItem_Click(object sender, EventArgs e)

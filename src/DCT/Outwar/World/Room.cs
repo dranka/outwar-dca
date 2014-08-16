@@ -5,6 +5,7 @@ using DCT.Settings;
 using DCT.Threading;
 using DCT.UI;
 using DCT.Util;
+using DCT.Pathfinding;
 
 namespace DCT.Outwar.World
 {
@@ -172,6 +173,9 @@ namespace DCT.Outwar.World
                     if (Globals.AttackOn)
                     {
                         CoreUI.Instance.SpawnsPanel.Log(string.Format("{0} sighted {1} in room {2} - Level: {3}", Mover.Account.Name, name, Id, level));
+                        bool exists = CoreUI.Instance.SpawnsPanel.SearchSpawns(name, level, Id.ToString());
+                        if (!exists)
+                            Spawns.Add(name + ";" + level + ";" + Id + ";");
                         //CoreUI.Instance.SpawnsPanel.Log(name + ";" + level + ";" + Id + ";");
                         CoreUI.Instance.SpawnsPanel.Sighted(Id);
                         if (!CoreUI.Instance.Settings.AttackSpawns)

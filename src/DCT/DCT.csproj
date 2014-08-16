@@ -116,6 +116,7 @@
     <Compile Include="Pathfinding\MobCollector.cs" />
     <Compile Include="Pathfinding\QuestMobs.cs" />
     <Compile Include="Pathfinding\Rooms.cs" />
+    <Compile Include="Pathfinding\Spawns.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

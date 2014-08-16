@@ -424,6 +424,7 @@ namespace DCT.UI
             this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
             this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.debugToolStripMenuItem.Text = "Debug";
+            this.debugToolStripMenuItem.Visible = false;
             // 
             // spiderToolStripMenuItem
             // 
@@ -570,9 +571,10 @@ namespace DCT.UI
             // btnStop
             // 
             this.btnStop.Enabled = false;
+            this.btnStop.Image = global::DCT.Properties.Resources.Flag_red;
             this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(35, 22);
+            this.btnStop.Size = new System.Drawing.Size(51, 22);
             this.btnStop.Text = "Stop";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 

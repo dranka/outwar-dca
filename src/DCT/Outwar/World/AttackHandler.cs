@@ -196,6 +196,12 @@ namespace DCT.Outwar.World
                 Pathfinding.MobCollector.Submit();
             }
 
+            if (Pathfinding.Spawns.Count > 0)
+            {
+                CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.Spawns.Count + " new spawns");
+                Pathfinding.Spawns.Submit();
+            }
+
             if (Pathfinding.QuestMobs.Count > 0)
             {
                 CoreUI.Instance.LogPanel.Log("Submitting " + Pathfinding.QuestMobs.Count + " new quest mobs");

@@ -44,6 +44,7 @@ namespace DCT.UI
             this.label4 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.chkAutoTeleport = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRageLimit)).BeginInit();
@@ -54,6 +55,7 @@ namespace DCT.UI
             // 
             // grpSettings
             // 
+            this.grpSettings.Controls.Add(this.label1);
             this.grpSettings.Controls.Add(this.chkMultiThread);
             this.grpSettings.Controls.Add(this.pnlMainPanel);
             this.grpSettings.Controls.Add(this.chkReturnToStart);
@@ -275,6 +277,15 @@ namespace DCT.UI
             this.chkAutoTeleport.UseVisualStyleBackColor = true;
             this.chkAutoTeleport.CheckedChanged += new System.EventHandler(this.chkAutoTeleport_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "(Do not use if attacking by mob)";
+            // 
             // AttackPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +322,7 @@ namespace DCT.UI
         private System.Windows.Forms.CheckBox chkReturnToStart;
         private System.Windows.Forms.Panel pnlMainPanel;
         private System.Windows.Forms.CheckBox chkMultiThread;
+        private System.Windows.Forms.Label label1;
 
     }
 }

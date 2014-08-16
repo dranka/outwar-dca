@@ -140,6 +140,8 @@ namespace DCT.Outwar.World
                 var MapArea = MessageBox.Show("Would you like to try mapping this area?", "Area not mapped", MessageBoxButtons.YesNo);
                 if (MapArea == DialogResult.Yes)
                 {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                     Spider(Location.Name);
                 }
                 CoreUI.Instance.UpdateProgressbar(0, 0);

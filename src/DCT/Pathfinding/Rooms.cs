@@ -53,6 +53,8 @@ namespace DCT.Pathfinding
 
             mSubmitted.AddRange(mRooms);
             mRooms.Clear();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }

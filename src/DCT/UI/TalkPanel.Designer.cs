@@ -63,6 +63,7 @@
             this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Needed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Finished = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -390,6 +391,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.dgQuest);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -414,6 +416,7 @@
             this.dgQuest.Name = "dgQuest";
             this.dgQuest.Size = new System.Drawing.Size(397, 256);
             this.dgQuest.TabIndex = 0;
+            this.dgQuest.Visible = false;
             // 
             // Mob
             // 
@@ -443,6 +446,16 @@
             this.Finished.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Finished.Width = 50;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(82, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(245, 32);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Coming Soon...";
+            // 
             // TalkPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,6 +472,7 @@
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgQuest)).EndInit();
             this.ResumeLayout(false);
 
@@ -501,5 +515,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Done;
         private System.Windows.Forms.DataGridViewTextBoxColumn Needed;
         private System.Windows.Forms.DataGridViewImageColumn Finished;
+        private System.Windows.Forms.Label label5;
     }
 }

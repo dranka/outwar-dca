@@ -269,6 +269,22 @@ namespace DCT.UI
             mUI.InvokePathfind(int.Parse(item.SubItems[2].Text));
         }
 
+        public bool SearchSpawns(string name, string level, string room)
+        {
+            ListViewItem item1 = lvSpawns.FindItemWithText(name);
+            if (item1 != null)
+            {
+                return true;
+            }
+            else
+            {
+                CheckForIllegalCrossThreadCalls = false;
+                ListViewItem tmp = new ListViewItem(new string[] { name, level, room, "0", "0" });
+                lvSpawns.Items.Add(tmp);
+                return false;
+            }
+        }
+
         private void lvSpawns_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvSpawns.SelectedItems.Count < 1)
