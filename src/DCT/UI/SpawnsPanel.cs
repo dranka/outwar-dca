@@ -64,12 +64,13 @@ namespace DCT.UI
 
         internal void Sighted(int roomid)
         {
+            CheckForIllegalCrossThreadCalls = false;
+
             if (InvokeRequired)
             {
                 Invoke(new CountersHandler(Sighted), roomid);
                 return;
             }
-
             foreach (ListViewItem item in lvSpawns.Items)
             {
                 if (int.Parse(item.SubItems[2].Text) == roomid)
@@ -271,6 +272,7 @@ namespace DCT.UI
 
         public bool SearchSpawns(string name, string level, string room)
         {
+            CheckForIllegalCrossThreadCalls = false;
             ListViewItem item1 = lvSpawns.FindItemWithText(name);
             if (item1 != null)
             {
@@ -297,5 +299,6 @@ namespace DCT.UI
                 txt = txt.Substring(2);
             btnGo.Text = string.Format("Go to {0}", txt);
         }
+
     }
 }

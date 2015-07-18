@@ -9,8 +9,10 @@ using System.Windows.Forms;
 using DCT.Outwar;
 using DCT.Outwar.World;
 using DCT.Pathfinding;
+using DCT.Parsing;
 using DCT.Settings;
 using DCT.Threading;
+using DCT.Protocols.Http;
 using DCT.Util;
 using Meebey.SmartIrc4net;
 using Version=DCT.Security.Version;
@@ -203,9 +205,9 @@ namespace DCT.UI
             // clean up notifyicon
             if (mNotifyIcon != null)
             {
-                mNotifyIcon.Visible = false;
+               // mNotifyIcon.Visible = false;
                 mNotifyIcon.Dispose();
-                mNotifyIcon = null;
+               // mNotifyIcon = null;
             }
 
             Application.Exit();
@@ -1111,6 +1113,41 @@ namespace DCT.UI
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             RefreshRoom();
+        }
+
+        private void toolStripLabel5_Click(object sender, EventArgs e)
+        {
+            AccountsPanel.Engine.MainAccount.Mover.RefreshRoom();
+            MapRoom(AccountsPanel.Engine.MainAccount.Mover.Location.Id);
+        }
+
+        private void MapRoom(int id)
+        {
+            string checkroom = HttpSocket.DefaultInstance.Get("http://fuckplayingfair.com/Typpo/checkroom.php?room=" + id);
+            if (checkroom.IndexOf("yes") != -1)
+            {
+                MessageBox.Show("Room already mapped");
+            }
+            else
+            {
+                string url = string.Format("ajax_changeroomb.php");
+                string src = AccountsPanel.Engine.MainAccount.Socket.Get(url);
+                int n, ss, e, w;
+                n = ss = e = w = -1;
+                int.TryParse(Parser.Parse(src, "\"north\":\"", "\""), out n);
+                int.TryParse(Parser.Parse(src, "\"south\":\"", "\""), out ss);
+                int.TryParse(Parser.Parse(src, "\"east\":\"", "\""), out e);
+                int.TryParse(Parser.Parse(src, "\"west\":\"", "\""), out w);
+                List<int> nbrs = new List<int>();
+                nbrs.Add(n);
+                nbrs.Add(ss);
+                nbrs.Add(e);
+                nbrs.Add(w);
+                MappedRoom nr = new MappedRoom(AccountsPanel.Engine.MainAccount.Mover.Location.Id, AccountsPanel.Engine.MainAccount.Mover.Location.Name, nbrs);
+                sRooms.Add(nr);
+                sRooms.Submit();
+                MessageBox.Show("Successfully mapped room " + id);
+            }
         }
     }
 }

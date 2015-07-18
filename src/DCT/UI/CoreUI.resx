@@ -158,6 +158,14 @@
         2QEcCrTQ9Q43JwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVDhPzYwLCsAgDEN79N18MyVxpfspheGDqklNbB32
+        AK3uUb7Djz4ia9G8K1zgOINttqC7P1KCoG4Nv9yHQS6IJVw/h0UuwZv2dxjEAkrHl6MwMB8U5QJQLikX
+        gFL4J8wOKIK00OhYW6YAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnStartTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

@@ -100,6 +100,7 @@ namespace DCT.UI
             this.tslRoom = new System.Windows.Forms.ToolStripLabel();
             this.lblRoom = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.splitLeftRight = new System.Windows.Forms.SplitContainer();
             this.splitTopBottom = new System.Windows.Forms.SplitContainer();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -551,7 +552,8 @@ namespace DCT.UI
             this.lblGold,
             this.tslRoom,
             this.lblRoom,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripLabel5});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.ShowItemToolTips = false;
@@ -571,7 +573,7 @@ namespace DCT.UI
             // btnStop
             // 
             this.btnStop.Enabled = false;
-            this.btnStop.Image = global::DCT.Properties.Resources.Flag_red;
+            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
             this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(51, 22);
@@ -689,6 +691,14 @@ namespace DCT.UI
             this.toolStripButton1.Size = new System.Drawing.Size(79, 22);
             this.toolStripButton1.Text = "Refresh Room";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(57, 22);
+            this.toolStripLabel5.Text = "Map Room";
+            this.toolStripLabel5.Click += new System.EventHandler(this.toolStripLabel5_Click);
             // 
             // splitLeftRight
             // 
@@ -940,5 +950,6 @@ namespace DCT.UI
         private System.Windows.Forms.ToolStripLabel tslRoom;
         private System.Windows.Forms.ToolStripLabel lblRoom;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
     }
 }

@@ -51,6 +51,7 @@ namespace DCT.Pathfinding
             MappedMob mm;
             string map;
             string[] parts;
+           
             for (int i = 0; i < 2 && Mobs.Count < 1; i++)
             {
                 if (!File.Exists("mobs.dat"))

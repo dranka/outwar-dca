@@ -527,7 +527,7 @@ namespace DCT.Outwar.World
             if (IsSpawn)
             {
                 CoreUI.Instance.SpawnsPanel.Log(string.Format("{0} attacked {1}", mRoom.Mover.Account.Name, Name));
-                CoreUI.Instance.SpawnsPanel.Attacked(mRoom.Id);
+                //CoreUI.Instance.SpawnsPanel.Attacked(mRoom.Id);
             }
 
             // other outcome handling
@@ -556,7 +556,7 @@ namespace DCT.Outwar.World
                     {
                         Globals.ExpGained += mExpGained;
                         mRoom.Mover.ExpGained += mExpGained;
-                        attackLogString = string.Format("{0} beat {1}, gained {2} exp", mRoom.Mover.Account.Name, mName, mExpGained);
+                        attackLogString = string.Format("{0} beat {1}, gained {2} exp ", mRoom.Mover.Account.Name, mName, mExpGained);
                     }
                 }
                 else

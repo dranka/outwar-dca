@@ -48,8 +48,6 @@ namespace DCT.Pathfinding
 
             mSubmitted.AddRange(mItems);
             mItems.Clear();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
         }
     }
 }

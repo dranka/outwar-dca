@@ -164,7 +164,9 @@ namespace DCT.UI
             "Home Bar",
             "Noble Wizard",
             "Valiant Crusader",
-            "Tracy McScurvy"});
+            "Tracy McScurvy",
+            "Abandoned Desert",
+            "Valley of Death"});
             this.cmbTele.Location = new System.Drawing.Point(7, 6);
             this.cmbTele.Name = "cmbTele";
             this.cmbTele.Size = new System.Drawing.Size(114, 21);

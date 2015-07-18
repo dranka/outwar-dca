@@ -17,6 +17,7 @@ namespace DCT.UI
     public partial class TalkPanel : UserControl
     {
         private BindingSource bs = new BindingSource();
+        string x;
 
         internal bool TalkEnabled
         {
@@ -426,6 +427,32 @@ namespace DCT.UI
 
             }
             
+        }
+
+        private void linkLabel7_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            x = "";
+            foreach (int b in CoreUI.Instance.AccountsPanel.CheckedIndices)
+            {
+                Account A = CoreUI.Instance.AccountsPanel.Engine.Accounts[b];
+                if (x == "")
+                {
+                    x = "\"" + A.Id + "\"";
+                }
+                else
+                {
+                    if (b % 5 == 0)
+                    {
+                        x = x + ", " + "\"" + A.Id + "\"\r\n";
+                    }
+                    else
+                    {
+                        x = x + ", " + "\"" + A.Id + "\"";
+                    }
+
+                }
+            }
+            System.Windows.Forms.Clipboard.SetText(x);
         }
     }
 }

@@ -44,7 +44,17 @@ namespace DCT.Pathfinding
             StringBuilder sb = new StringBuilder();
             foreach (MappedRoom mb in mRooms)
             {
-                sb.AppendLine(mb.ToString());
+                if (mb.ToString().IndexOf("'") > 0)
+                {
+                    string Room1 = mb.ToString().Replace("'", "");
+                    sb.AppendLine(Room1);
+                }
+                else
+                {
+                    sb.AppendLine(mb.ToString());
+                }
+
+
             }
 
             // send data
@@ -53,8 +63,6 @@ namespace DCT.Pathfinding
 
             mSubmitted.AddRange(mRooms);
             mRooms.Clear();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
         }
     }
 }

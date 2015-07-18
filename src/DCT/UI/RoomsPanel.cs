@@ -241,6 +241,16 @@ namespace DCT.UI
                 CoreUI.Instance.AccountsPanel.Engine[i].Mover.Socket.Get("world.php?room=390");
                 CoreUI.Instance.LogPanel.Log("Teleporting " + CoreUI.Instance.AccountsPanel.Engine[i].Name + " ...");
             }
+            else if (Name == "Abandoned Desert")
+            {
+                CoreUI.Instance.AccountsPanel.Engine[i].Mover.Socket.Get("world.php?room=10981");
+                CoreUI.Instance.LogPanel.Log("Teleporting " + CoreUI.Instance.AccountsPanel.Engine[i].Name + " ...");
+            }
+            else if (Name == "Valley of Death")
+            {
+                CoreUI.Instance.AccountsPanel.Engine[i].Mover.Socket.Get("world.php?room=10697");
+                CoreUI.Instance.LogPanel.Log("Teleporting " + CoreUI.Instance.AccountsPanel.Engine[i].Name + " ...");
+            }
         }
     }
 }

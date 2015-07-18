@@ -436,6 +436,7 @@
   <ItemGroup>
     <Content Include="Default.ico" />
     <Content Include="Misc\Bad.ico" />
+    <None Include="Resources\Flag_red.bmp" />
     <None Include="Resources\polls_600px_Red_x.svg_0138_34463_answer_2_small.png" />
     <None Include="Resources\Checkmark-small.jpg" />
     <None Include="Resources\redx.png" />
@@ -443,7 +444,6 @@
     <None Include="Misc\Default.ico" />
     <None Include="Misc\Running.ico" />
     <None Include="Resources\Flag_red1.bmp" />
-    <None Include="Resources\Flag_red.bmp" />
     <None Include="Resources\Flag_green.bmp" />
   </ItemGroup>
   <ItemGroup>

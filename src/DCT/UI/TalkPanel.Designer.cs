@@ -33,6 +33,14 @@
             this.lnkPotions = new System.Windows.Forms.LinkLabel();
             this.lnkOrbs = new System.Windows.Forms.LinkLabel();
             this.lnkQuests = new System.Windows.Forms.LinkLabel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgQuest = new System.Windows.Forms.DataGridView();
+            this.Mob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Needed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Finished = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
@@ -57,19 +65,12 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgQuest = new System.Windows.Forms.DataGridView();
-            this.Mob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Done = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Needed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Finished = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgQuest)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgQuest)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -133,6 +134,86 @@
             this.lnkQuests.TabStop = true;
             this.lnkQuests.Text = "Quests";
             this.lnkQuests.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkQuests_LinkClicked);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.linkLabel7);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.dgQuest);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(409, 268);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Questing";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel7
+            // 
+            this.linkLabel7.AutoSize = true;
+            this.linkLabel7.Location = new System.Drawing.Point(172, 249);
+            this.linkLabel7.Name = "linkLabel7";
+            this.linkLabel7.Size = new System.Drawing.Size(74, 13);
+            this.linkLabel7.TabIndex = 2;
+            this.linkLabel7.TabStop = true;
+            this.linkLabel7.Text = "Dont Click Me";
+            this.linkLabel7.Visible = false;
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked_1);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(82, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(245, 32);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Coming Soon...";
+            // 
+            // dgQuest
+            // 
+            this.dgQuest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgQuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgQuest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Mob,
+            this.Done,
+            this.Needed,
+            this.Finished});
+            this.dgQuest.Location = new System.Drawing.Point(6, 6);
+            this.dgQuest.Name = "dgQuest";
+            this.dgQuest.Size = new System.Drawing.Size(397, 256);
+            this.dgQuest.TabIndex = 0;
+            this.dgQuest.Visible = false;
+            // 
+            // Mob
+            // 
+            this.Mob.HeaderText = "Mob/Item";
+            this.Mob.Name = "Mob";
+            this.Mob.Width = 150;
+            // 
+            // Done
+            // 
+            this.Done.HeaderText = "Done";
+            this.Done.Name = "Done";
+            this.Done.ReadOnly = true;
+            this.Done.Width = 50;
+            // 
+            // Needed
+            // 
+            this.Needed.HeaderText = "Needed";
+            this.Needed.Name = "Needed";
+            this.Needed.Width = 50;
+            // 
+            // Finished
+            // 
+            this.Finished.HeaderText = "";
+            this.Finished.Name = "Finished";
+            this.Finished.ReadOnly = true;
+            this.Finished.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Finished.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Finished.Width = 50;
             // 
             // tabPage2
             // 
@@ -389,73 +470,6 @@
             this.tabControl1.Size = new System.Drawing.Size(417, 294);
             this.tabControl1.TabIndex = 11;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Controls.Add(this.dgQuest);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(409, 268);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Questing";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgQuest
-            // 
-            this.dgQuest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgQuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgQuest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Mob,
-            this.Done,
-            this.Needed,
-            this.Finished});
-            this.dgQuest.Location = new System.Drawing.Point(6, 6);
-            this.dgQuest.Name = "dgQuest";
-            this.dgQuest.Size = new System.Drawing.Size(397, 256);
-            this.dgQuest.TabIndex = 0;
-            this.dgQuest.Visible = false;
-            // 
-            // Mob
-            // 
-            this.Mob.HeaderText = "Mob/Item";
-            this.Mob.Name = "Mob";
-            this.Mob.Width = 150;
-            // 
-            // Done
-            // 
-            this.Done.HeaderText = "Done";
-            this.Done.Name = "Done";
-            this.Done.ReadOnly = true;
-            this.Done.Width = 50;
-            // 
-            // Needed
-            // 
-            this.Needed.HeaderText = "Needed";
-            this.Needed.Name = "Needed";
-            this.Needed.Width = 50;
-            // 
-            // Finished
-            // 
-            this.Finished.HeaderText = "";
-            this.Finished.Name = "Finished";
-            this.Finished.ReadOnly = true;
-            this.Finished.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Finished.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Finished.Width = 50;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(82, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(245, 32);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Coming Soon...";
-            // 
             // TalkPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,14 +480,14 @@
             this.Size = new System.Drawing.Size(417, 294);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgQuest)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgQuest)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -485,6 +499,13 @@
         private System.Windows.Forms.LinkLabel lnkPotions;
         private System.Windows.Forms.LinkLabel lnkOrbs;
         private System.Windows.Forms.LinkLabel lnkQuests;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgQuest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Done;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Needed;
+        private System.Windows.Forms.DataGridViewImageColumn Finished;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel6;
@@ -509,12 +530,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dgQuest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mob;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Done;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Needed;
-        private System.Windows.Forms.DataGridViewImageColumn Finished;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel linkLabel7;
     }
 }

@@ -7,15 +7,15 @@ namespace DCT.Outwar
     {
         sigil,
         torax,
-        fabar,
-        zimbob,
-        rancid,
-        quiver
+        //fabar,
+        //zimbob,
+        //rancid,
+       // quiver
     }
 
     internal class Server
     {
-        internal const int NUM_SERVERS = 6;
+        internal const int NUM_SERVERS = 2;
 
         internal static List<string> NamesList
         {
@@ -24,10 +24,10 @@ namespace DCT.Outwar
                 List<string> ret = new List<string>();
                 ret.Add("Sigil");
                 ret.Add("Torax");
-                ret.Add("Fabar");
-                ret.Add("Zimbob");
-                ret.Add("Rancid");
-                ret.Add("Quiver");
+                //ret.Add("Fabar");
+               // ret.Add("Zimbob");
+               // ret.Add("Rancid");
+                //ret.Add("Quiver");
                 return ret;
             }
         }
@@ -40,14 +40,14 @@ namespace DCT.Outwar
                     return 1;
                 case ServerName.torax:
                     return 2;
-                case ServerName.fabar:
-                    return 3;
-                case ServerName.zimbob:
-                    return 4;
-                case ServerName.rancid:
-                    return 5;
-                case ServerName.quiver:
-                    return 6;
+               // case ServerName.fabar:
+               //     return 3;
+               // case ServerName.zimbob:
+               //     return 4;
+               // case ServerName.rancid:
+               //     return 5;
+               //case ServerName.quiver:
+               //     return 6;
             }
             return -1;
         }
@@ -60,14 +60,14 @@ namespace DCT.Outwar
                     return ServerName.sigil;
                 case 2:
                     return ServerName.torax;
-                case 3:
-                    return ServerName.fabar;
-                case 4:
-                    return ServerName.zimbob;
-                case 5:
-                    return ServerName.rancid;
-                case 6:
-                    return ServerName.quiver;
+               // case 3:
+               //     return ServerName.fabar;
+               //case 4:
+               //     return ServerName.zimbob;
+               // case 5:
+               //     return ServerName.rancid;
+               // case 6:
+               //     return ServerName.quiver;
             }
             throw new ArgumentException("No server name correlates with " + id);
         }

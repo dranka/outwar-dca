@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-16"?>
 <UserEditable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <LastMapUpdate>2014-04-13T18:44:33.465Z</LastMapUpdate>
+  <LastMapUpdate>2015-04-09T14:45:11.6585884Z</LastMapUpdate>
   <MobFilters>
     <Filter>penis</Filter>
   </MobFilters>
   <NotifyVisible>true</NotifyVisible>
   <ClearLogs>true</ClearLogs>
-  <AutoTeleport>true</AutoTeleport>
+  <AutoTeleport>false</AutoTeleport>
   <AlertQuests>false</AlertQuests>
   <AutoTrain>false</AutoTrain>
   <AutoQuest>false</AutoQuest>
@@ -14,21 +14,21 @@
   <UseCountdownTimer>false</UseCountdownTimer>
   <UseHourTimer>false</UseHourTimer>
   <ChatTimeStamps>true</ChatTimeStamps>
-  <UseFury>true</UseFury>
+  <UseFury>false</UseFury>
   <ReturnToStart>false</ReturnToStart>
-  <AttackMode>CurrentArea</AttackMode>
-  <RageLimit>75</RageLimit>
-  <StopAtRage>1</StopAtRage>
-  <CycleInterval>5</CycleInterval>
+  <AttackMode>MultiArea</AttackMode>
+  <RageLimit>60</RageLimit>
+  <StopAtRage>0</StopAtRage>
+  <CycleInterval>1</CycleInterval>
   <LvlLimitMin>0</LvlLimitMin>
   <LvlLimit>90</LvlLimit>
   <Timeout>15000</Timeout>
   <AttackSpawns>false</AttackSpawns>
   <IgnoreSpawnRage>true</IgnoreSpawnRage>
   <MultiThread>true</MultiThread>
-  <LastUsername>mastaquiv</LastUsername>
-  <LastPassword>15playa09</LastPassword>
-  <LoginThrough>1</LoginThrough>
+  <LastUsername>mastaplaya</LastUsername>
+  <LastPassword>15usag58</LastPassword>
+  <LoginThrough>2</LoginThrough>
   <StopAfter>false</StopAfter>
   <StopAfterVal>1</StopAfterVal>
   <StopAfterMode>Runs</StopAfterMode>

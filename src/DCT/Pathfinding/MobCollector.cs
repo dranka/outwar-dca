@@ -57,8 +57,6 @@ namespace DCT.Pathfinding
 
             mSubmitted.AddRange(mMobs);
             mMobs.Clear();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
         }
     }
 }

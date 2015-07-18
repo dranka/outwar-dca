@@ -91,14 +91,14 @@ namespace DCT.Outwar.World
 
             if (nodes == null)
             {
-                if (roomid >= 14507 & roomid <= 17555 | roomid >= 9954 & roomid <= 11844)
-                {
-                    Account.Socket.Get("world.php?room=10981");
-                    Location.Mover.RefreshRoom();
-                    nodes = Pathfinder.BFS(Location.Id, roomid);
-                }
-                else
-                {
+                //if (roomid >= 14507 & roomid <= 17555 | roomid >= 9954 & roomid <= 11844)
+                //{
+                //    Account.Socket.Get("world.php?room=10981");
+                //    Location.Mover.RefreshRoom();
+                //    nodes = Pathfinder.BFS(Location.Id, roomid);
+                //}
+                //else
+                //{
                     if (CoreUI.Instance.Settings.AutoTeleport ||
     MessageBox.Show("The program cannot build a path from your current area to your chosen location.  Do you want to teleport to the nearest bar and try again?  Recommended 'Yes' unless you are in a separated area such as Stoneraven.\n\n(this option can be automatically enabled under the Attack tab)", "Pathfinding Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
     == DialogResult.Yes)
@@ -114,7 +114,7 @@ namespace DCT.Outwar.World
                         CoreUI.Instance.StopAttacking(true);
                         return;
                     }
-                }
+                //}
                 //DCErrorReport.Report(this, "Null nodes path (unfamiliar location); teleport attempt possible");
             }
 
@@ -137,13 +137,13 @@ namespace DCT.Outwar.World
             if (nodes == null || nodes.Count < 1)
             {
                 CoreUI.Instance.LogPanel.Log("Move E: " + Account.Name + "'s projected path does not exist");
-                var MapArea = MessageBox.Show("Would you like to try mapping this area?", "Area not mapped", MessageBoxButtons.YesNo);
-                if (MapArea == DialogResult.Yes)
-                {
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                    Spider(Location.Name);
-                }
+                //var MapArea = MessageBox.Show("Would you like to try mapping this area?", "Area not mapped", MessageBoxButtons.YesNo);
+                //if (MapArea == DialogResult.Yes)
+                //{
+                //    GC.Collect();
+                //    GC.WaitForPendingFinalizers();
+                //    Spider(Location.Name);
+                //}
                 CoreUI.Instance.UpdateProgressbar(0, 0);
                 //DCErrorReport.Report(this, "Projected path does not exist; movement attempt failed");
                 return;
@@ -245,7 +245,6 @@ namespace DCT.Outwar.World
 
         internal void Spider(object p_bound)
         {
-                string north, east, south, west;
                 string bound = p_bound == null ? string.Empty : ((string)p_bound).ToLower();
                 // should probably update UI as well
                 CoreUI.Instance.Settings.AutoTeleport = false;
